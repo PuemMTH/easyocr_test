@@ -8,3 +8,5 @@ wheels/
 
 # Virtual environments
 .venv
+th_filtered_2gpus_v2/
+custom_example/

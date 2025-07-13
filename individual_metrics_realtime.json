@@ -1,0 +1,3259 @@
+[
+    {
+        "cer": 0.38461538461538464,
+        "cer_percent": 38.46153846153847,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.5,
+        "wer_pythainlp_percent": 50.0,
+        "semantic_similarity": 0.5329332947731018,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 2,
+            "hits": 0
+        },
+        "reference_length": 13,
+        "hypothesis_length": 11,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ไทยรัฐ TV32HD",
+        "hypothesis_text": "ไทยรัฐไฟ 32",
+        "reference_tokens": [
+            "ไทยรัฐ",
+            " ",
+            "TV",
+            "32",
+            "HD"
+        ],
+        "hypothesis_tokens": [
+            "ไทยรัฐ",
+            "ไฟ",
+            " ",
+            "32"
+        ]
+    },
+    {
+        "cer": 0.6666666666666666,
+        "cer_percent": 66.66666666666666,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.7096627354621887,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 15,
+        "hypothesis_length": 10,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ไทยรัฐนิวส์โชว์",
+        "hypothesis_text": "นิทธยรัชว์",
+        "reference_tokens": [
+            "ไทยรัฐ",
+            "นิวส์",
+            "โชว์"
+        ],
+        "hypothesis_tokens": [
+            "นิ",
+            "ทธยรัชว์"
+        ]
+    },
+    {
+        "cer": 0.6666666666666666,
+        "cer_percent": 66.66666666666666,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.8888888888888888,
+        "wer_pythainlp_percent": 88.88888888888889,
+        "semantic_similarity": 0.46132493019104004,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 1,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 30,
+        "hypothesis_length": 14,
+        "pythainlp_engine": "newmm",
+        "reference_text": "เพยน ผลอุดสาห์คนสนิทกับเจ๊น้อย",
+        "hypothesis_text": "เพิยนผิลอุดสาห",
+        "reference_tokens": [
+            "เพ",
+            "ยน",
+            " ",
+            "ผล",
+            "อุด",
+            "สาห์",
+            "คนสนิท",
+            "กับ",
+            "เจ๊",
+            "น้อย"
+        ],
+        "hypothesis_tokens": [
+            "เพิยน",
+            "ผิ",
+            "ล",
+            "อุด",
+            "สา",
+            "ห"
+        ]
+    },
+    {
+        "cer": 0.8333333333333334,
+        "cer_percent": 83.33333333333334,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.5062742829322815,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 2,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 54,
+        "hypothesis_length": 35,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ดูไทยรัฐนิวส์โชว์ทุกวัน ข่าวสนุก พิธีกรน่ารักมากเลยค่ะ",
+        "hypothesis_text": "กำลังชมข่าวไทยรัฐนิวสโชวครับ/ลุงลอง",
+        "reference_tokens": [
+            "ดู",
+            "ไทยรัฐ",
+            "นิวส์",
+            "โชว์",
+            "ทุกวัน",
+            " ",
+            "ข่าว",
+            "สนุก",
+            " ",
+            "พิธีกร",
+            "น่ารัก",
+            "มาก",
+            "เลย",
+            "ค่ะ"
+        ],
+        "hypothesis_tokens": [
+            "กำลัง",
+            "ชม",
+            "ข่าว",
+            "ไทยรัฐ",
+            "นิว",
+            "สโชว",
+            "ครับ",
+            "/",
+            "ลุง",
+            "ลอง"
+        ]
+    },
+    {
+        "cer": 0.07142857142857142,
+        "cer_percent": 7.142857142857142,
+        "wer": 0.375,
+        "wer_percent": 37.5,
+        "wer_pythainlp": 0.38461538461538464,
+        "wer_pythainlp_percent": 38.46153846153847,
+        "semantic_similarity": 0.9588022232055664,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 3,
+            "hits": 5
+        },
+        "reference_length": 56,
+        "hypothesis_length": 55,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ชูวิทย์ เปิด หฐ. แถลงข่าว 3 แสน เตรียมฟ้องหมิ่น ทนายตั้ม",
+        "hypothesis_text": "ชูวิทย์ เปิด หฐ. แกลงข่าว 3 แสน เตรียมฟ้องหมื่น ทนายติม",
+        "reference_tokens": [
+            "ชู",
+            "วิทย์",
+            " ",
+            "เปิด",
+            " ",
+            "หฐ",
+            ".",
+            " ",
+            "แถลงข่าว",
+            " ",
+            "3",
+            " ",
+            "แสน",
+            " ",
+            "เตรียม",
+            "ฟ้อง",
+            "หมิ่น",
+            " ",
+            "ทนาย",
+            "ตั้ม"
+        ],
+        "hypothesis_tokens": [
+            "ชู",
+            "วิทย์",
+            " ",
+            "เปิด",
+            " ",
+            "หฐ",
+            ".",
+            " ",
+            "แก",
+            "ลงข่าว",
+            " ",
+            "3",
+            " ",
+            "แสน",
+            " ",
+            "เตรียม",
+            "ฟ้อง",
+            "หมื่น",
+            " ",
+            "ทนาย",
+            "ติ",
+            "ม"
+        ]
+    },
+    {
+        "cer": 0.75,
+        "cer_percent": 75.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.5124950408935547,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 12,
+        "hypothesis_length": 4,
+        "pythainlp_engine": "newmm",
+        "reference_text": "mcothd30live",
+        "hypothesis_text": "mcor",
+        "reference_tokens": [
+            "mcothd",
+            "30",
+            "live"
+        ],
+        "hypothesis_tokens": [
+            "mcor"
+        ]
+    },
+    {
+        "cer": 0.6,
+        "cer_percent": 60.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.8,
+        "wer_pythainlp_percent": 80.0,
+        "semantic_similarity": 0.809055507183075,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 15,
+        "hypothesis_length": 8,
+        "pythainlp_engine": "newmm",
+        "reference_text": "คุยโขมงบ่าย3โมง",
+        "hypothesis_text": "คุยยงเมง",
+        "reference_tokens": [
+            "คุย",
+            "โขมง",
+            "บ่าย",
+            "3",
+            "โมง"
+        ],
+        "hypothesis_tokens": [
+            "คุย",
+            "ยง",
+            "เม",
+            "ง"
+        ]
+    },
+    {
+        "cer": 0.7692307692307693,
+        "cer_percent": 76.92307692307693,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.29539239406585693,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 1,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 13,
+        "hypothesis_length": 6,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ไทยรัฐ TV32HD",
+        "hypothesis_text": "เยร|[3",
+        "reference_tokens": [
+            "ไทยรัฐ",
+            " ",
+            "TV",
+            "32",
+            "HD"
+        ],
+        "hypothesis_tokens": [
+            "เย",
+            "ร",
+            "|[3"
+        ]
+    },
+    {
+        "cer": 0.8,
+        "cer_percent": 80.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.6366618871688843,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 15,
+        "hypothesis_length": 9,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ไทยรัฐนิวส์โชว์",
+        "hypothesis_text": "นิทธิอิร์",
+        "reference_tokens": [
+            "ไทยรัฐ",
+            "นิวส์",
+            "โชว์"
+        ],
+        "hypothesis_tokens": [
+            "นิ",
+            "ทธิ",
+            "อิร์"
+        ]
+    },
+    {
+        "cer": 0.12244897959183673,
+        "cer_percent": 12.244897959183673,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.11764705882352941,
+        "wer_pythainlp_percent": 11.76470588235294,
+        "semantic_similarity": 0.9746254086494446,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 3,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 49,
+        "hypothesis_length": 45,
+        "pythainlp_engine": "newmm",
+        "reference_text": "\"ลีนาจัง\" หยุนหัวโชว์สื่อ ลั่นเป็นเหยื่อ \"แพรรี่\"",
+        "hypothesis_text": "\"ลีนาจัง\"หยุมหัวโชว์สื่อลืนเป็นเหยื่อ\"แพรรี่\"",
+        "reference_tokens": [
+            "\"",
+            "ลี",
+            "นา",
+            "จัง",
+            "\"",
+            " ",
+            "หยุ",
+            "น",
+            "หัว",
+            "โชว์",
+            "สื่อ",
+            " ",
+            "ลั่น",
+            "เป็น",
+            "เหยื่อ",
+            " ",
+            "\"",
+            "แพร",
+            "รี่",
+            "\""
+        ],
+        "hypothesis_tokens": [
+            "\"",
+            "ลี",
+            "นา",
+            "จัง",
+            "\"",
+            "หยุ",
+            "ม",
+            "หัว",
+            "โชว์",
+            "สื่อ",
+            "ลืน",
+            "เป็น",
+            "เหยื่อ",
+            "\"",
+            "แพร",
+            "รี่",
+            "\""
+        ]
+    },
+    {
+        "cer": 0.047619047619047616,
+        "cer_percent": 4.761904761904762,
+        "wer": 0.5,
+        "wer_percent": 50.0,
+        "wer_pythainlp": 0.16666666666666666,
+        "wer_pythainlp_percent": 16.666666666666664,
+        "semantic_similarity": 0.9579832553863525,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 2,
+            "hits": 2
+        },
+        "reference_length": 63,
+        "hypothesis_length": 61,
+        "pythainlp_engine": "newmm",
+        "reference_text": "คุณอุ๋ย น้องมิ้นท์สดใส นำเสนอข่าวได้ละเอียดเข้าใจง่าย ชัดเจนมาก",
+        "hypothesis_text": "คุณอุย น้องมื้นทสดใส นำเสนอข่าวได้ละเอียดเข้าใจง่าย ชัดเจนมาก",
+        "reference_tokens": [
+            "คุณ",
+            "อุ๋ย",
+            " ",
+            "น้อง",
+            "มิ้นท์",
+            "สดใส",
+            " ",
+            "นำเสนอ",
+            "ข่าว",
+            "ได้",
+            "ละเอียด",
+            "เข้าใจง่าย",
+            " ",
+            "ชัดเจน",
+            "มาก"
+        ],
+        "hypothesis_tokens": [
+            "คุณ",
+            "อุย",
+            " ",
+            "น้อง",
+            "มื้นท",
+            "สดใส",
+            " ",
+            "นำเสนอ",
+            "ข่าว",
+            "ได้",
+            "ละเอียด",
+            "เข้าใจง่าย",
+            " ",
+            "ชัดเจน",
+            "มาก"
+        ]
+    },
+    {
+        "cer": 1.0,
+        "cer_percent": 100.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.29297009110450745,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 7,
+        "hypothesis_length": 3,
+        "pythainlp_engine": "newmm",
+        "reference_text": "7HDlive",
+        "hypothesis_text": "อะู",
+        "reference_tokens": [
+            "7",
+            "HDlive"
+        ],
+        "hypothesis_tokens": [
+            "อะ",
+            "ู"
+        ]
+    },
+    {
+        "cer": 0.375,
+        "cer_percent": 37.5,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 2.0,
+        "wer_pythainlp_percent": 200.0,
+        "semantic_similarity": 0.7462670803070068,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 8,
+        "hypothesis_length": 8,
+        "pythainlp_engine": "newmm",
+        "reference_text": "จ.ชลบุรี",
+        "hypothesis_text": "ไอชลบุธี",
+        "reference_tokens": [
+            "จ.",
+            "ชลบุรี"
+        ],
+        "hypothesis_tokens": [
+            "ไอ",
+            "ชล",
+            "บุ",
+            "ธี"
+        ]
+    },
+    {
+        "cer": 0.061224489795918366,
+        "cer_percent": 6.122448979591836,
+        "wer": 0.5,
+        "wer_percent": 50.0,
+        "wer_pythainlp": 0.875,
+        "wer_pythainlp_percent": 87.5,
+        "semantic_similarity": 0.9686258435249329,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 1
+        },
+        "reference_length": 49,
+        "hypothesis_length": 48,
+        "pythainlp_engine": "newmm",
+        "reference_text": "คลิปฟ้อง คนขับรถบัสพัทยาเล่นโทรศัพท์มือถือตลอดทาง",
+        "hypothesis_text": "คลิปฟ้อง คนขับธถบัสพัทยาล่นโทธศัพท์มือถือตลอดทาง",
+        "reference_tokens": [
+            "คลิป",
+            "ฟ้อง",
+            " ",
+            "คนขับ",
+            "รถบัส",
+            "พัทยา",
+            "เล่น",
+            "โทรศัพท์มือถือ",
+            "ตลอดทาง"
+        ],
+        "hypothesis_tokens": [
+            " ",
+            "คลิป",
+            "ฟ้อง",
+            " ",
+            "คนขับ",
+            "ธถ",
+            "บัส",
+            "พัทยา",
+            "ล่น",
+            "โท",
+            "ธ",
+            "ศัพท์",
+            "มือถือ",
+            "ตลอดทาง"
+        ]
+    },
+    {
+        "cer": 0.07142857142857142,
+        "cer_percent": 7.142857142857142,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 3.0,
+        "wer_pythainlp_percent": 300.0,
+        "semantic_similarity": 0.7637554407119751,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 14,
+        "hypothesis_length": 14,
+        "pythainlp_engine": "newmm",
+        "reference_text": "โทรศัพท์มือถือ",
+        "hypothesis_text": "โทรศัพา์มือถือ",
+        "reference_tokens": [
+            "โทรศัพท์มือถือ"
+        ],
+        "hypothesis_tokens": [
+            "โทร",
+            "ศัพา์",
+            "มือถือ"
+        ]
+    },
+    {
+        "cer": 0.875,
+        "cer_percent": 87.5,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.15501971542835236,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 16,
+        "hypothesis_length": 4,
+        "pythainlp_engine": "newmm",
+        "reference_text": "เช้านี้ที่หมอชิต",
+        "hypothesis_text": "เเีย",
+        "reference_tokens": [
+            "เช้านี้",
+            "ที่",
+            "หมอชิต"
+        ],
+        "hypothesis_tokens": [
+            "เเีย"
+        ]
+    },
+    {
+        "cer": 0.4,
+        "cer_percent": 40.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.5339397192001343,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 2,
+            "substitutions": 3,
+            "hits": 0
+        },
+        "reference_length": 45,
+        "hypothesis_length": 42,
+        "pythainlp_engine": "newmm",
+        "reference_text": "\"เสก โลโซ\" นอนคุกคืนแรก ปรับตัวได้ สุขภาพใจดี",
+        "hypothesis_text": "\"เสกโลโซ\" แอแกุกกีแรก ปร้แต้าไก้สุขเทพไงกี",
+        "reference_tokens": [
+            "\"",
+            "เสก",
+            " ",
+            "โลโซ",
+            "\"",
+            " ",
+            "นอน",
+            "คุก",
+            "คืน",
+            "แรก",
+            " ",
+            "ปรับตัว",
+            "ได้",
+            " ",
+            "สุขภาพ",
+            "ใจดี"
+        ],
+        "hypothesis_tokens": [
+            "\"",
+            "เสก",
+            "โลโซ",
+            "\"",
+            " ",
+            "แอ",
+            "แก",
+            "ุก",
+            "กี",
+            "แรก",
+            " ",
+            "ปร้",
+            "แต้",
+            "า",
+            "ไก้",
+            "สุข",
+            "เทพ",
+            "ไง",
+            "กี"
+        ]
+    },
+    {
+        "cer": 0.07692307692307693,
+        "cer_percent": 7.6923076923076925,
+        "wer": 2.0,
+        "wer_percent": 200.0,
+        "wer_pythainlp": 0.0,
+        "wer_pythainlp_percent": 0.0,
+        "semantic_similarity": 0.972649097442627,
+        "edit_operations": {
+            "insertions": 1,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 13,
+        "hypothesis_length": 14,
+        "pythainlp_engine": "newmm",
+        "reference_text": "เที่ยงทันข่าว",
+        "hypothesis_text": "เที่ยง ทันข่าว",
+        "reference_tokens": [
+            "เที่ยง",
+            "ทัน",
+            "ข่าว"
+        ],
+        "hypothesis_tokens": [
+            "เที่ยง",
+            " ",
+            "ทัน",
+            "ข่าว"
+        ]
+    },
+    {
+        "cer": 1.0,
+        "cer_percent": 100.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.30803683400154114,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 12,
+        "hypothesis_length": 4,
+        "pythainlp_engine": "newmm",
+        "reference_text": "pptvhd36live",
+        "hypothesis_text": "อิอู",
+        "reference_tokens": [
+            "pptvhd",
+            "36",
+            "live"
+        ],
+        "hypothesis_tokens": [
+            "อิ",
+            "อู"
+        ]
+    },
+    {
+        "cer": 1.0,
+        "cer_percent": 100.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.29086217284202576,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 12,
+        "hypothesis_length": 4,
+        "pythainlp_engine": "newmm",
+        "reference_text": "pptvhd36live",
+        "hypothesis_text": "อิรู",
+        "reference_tokens": [
+            "pptvhd",
+            "36",
+            "live"
+        ],
+        "hypothesis_tokens": [
+            "อิ",
+            "รู"
+        ]
+    },
+    {
+        "cer": 0.05555555555555555,
+        "cer_percent": 5.555555555555555,
+        "wer": 0.3333333333333333,
+        "wer_percent": 33.33333333333333,
+        "wer_pythainlp": 0.42857142857142855,
+        "wer_pythainlp_percent": 42.857142857142854,
+        "semantic_similarity": 0.726161003112793,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 2
+        },
+        "reference_length": 36,
+        "hypothesis_length": 37,
+        "pythainlp_engine": "newmm",
+        "reference_text": "เผยกระแสปรับ ครม. เป็นเรื่องของนายกฯ",
+        "hypothesis_text": "เผยกระแสปรับ ครม. ฺเป็นเรื่องของนายก9",
+        "reference_tokens": [
+            "เผย",
+            "กระแส",
+            "ปรับ",
+            " ",
+            "ครม.",
+            " ",
+            "เป็นเรื่อง",
+            "ของ",
+            "นายกฯ"
+        ],
+        "hypothesis_tokens": [
+            "เผย",
+            "กระแส",
+            "ปรับ",
+            " ",
+            "ครม.",
+            " ",
+            "ฺ",
+            "เป็นเรื่อง",
+            "ของ",
+            "นายก",
+            "9"
+        ]
+    },
+    {
+        "cer": 0.09090909090909091,
+        "cer_percent": 9.090909090909092,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.6666666666666666,
+        "wer_pythainlp_percent": 66.66666666666666,
+        "semantic_similarity": 0.8762921094894409,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 11,
+        "hypothesis_length": 12,
+        "pythainlp_engine": "newmm",
+        "reference_text": "เข้มข่าวค่ำ",
+        "hypothesis_text": "เขื้มข่าวค่ำ",
+        "reference_tokens": [
+            "เข้ม",
+            "ข่าว",
+            "ค่ำ"
+        ],
+        "hypothesis_tokens": [
+            "เข",
+            "ื้ม",
+            "ข่าว",
+            "ค่ำ"
+        ]
+    },
+    {
+        "cer": 0.1111111111111111,
+        "cer_percent": 11.11111111111111,
+        "wer": 0.6666666666666666,
+        "wer_percent": 66.66666666666666,
+        "wer_pythainlp": 0.625,
+        "wer_pythainlp_percent": 62.5,
+        "semantic_similarity": 0.9713234901428223,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 4,
+            "hits": 2
+        },
+        "reference_length": 45,
+        "hypothesis_length": 46,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ขอบคุณภาพ กองทัพอากาศไทย Royal Thai Air Force",
+        "hypothesis_text": "ขอบคุณภาพ กองทัพอากาศไทย royal. thai air force",
+        "reference_tokens": [
+            "ขอบ",
+            "คุณภาพ",
+            " ",
+            "กองทัพอากาศ",
+            "ไทย",
+            " ",
+            "Royal",
+            " ",
+            "Thai",
+            " ",
+            "Air",
+            " ",
+            "Force"
+        ],
+        "hypothesis_tokens": [
+            "ขอบ",
+            "คุณภาพ",
+            " ",
+            "กองทัพอากาศ",
+            "ไทย",
+            " ",
+            "royal",
+            ".",
+            " ",
+            "thai",
+            " ",
+            "air",
+            " ",
+            "force"
+        ]
+    },
+    {
+        "cer": 0.0,
+        "cer_percent": 0.0,
+        "wer": 0.0,
+        "wer_percent": 0.0,
+        "wer_pythainlp": 0.0,
+        "wer_pythainlp_percent": 0.0,
+        "semantic_similarity": 1.0,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 0,
+            "hits": 3
+        },
+        "reference_length": 37,
+        "hypothesis_length": 37,
+        "pythainlp_engine": "newmm",
+        "reference_text": "กองทัพไทยส่งกำลังพล 55 นายช่วยเมียนมา",
+        "hypothesis_text": "กองทัพไทยส่งกำลังพล 55 นายช่วยเมียนมา",
+        "reference_tokens": [
+            "กองทัพ",
+            "ไทย",
+            "ส่ง",
+            "กำลัง",
+            "พล",
+            " ",
+            "55",
+            " ",
+            "นาย",
+            "ช่วย",
+            "เมียนมา"
+        ],
+        "hypothesis_tokens": [
+            "กองทัพ",
+            "ไทย",
+            "ส่ง",
+            "กำลัง",
+            "พล",
+            " ",
+            "55",
+            " ",
+            "นาย",
+            "ช่วย",
+            "เมียนมา"
+        ]
+    },
+    {
+        "cer": 0.12087912087912088,
+        "cer_percent": 12.087912087912088,
+        "wer": 0.8571428571428571,
+        "wer_percent": 85.71428571428571,
+        "wer_pythainlp": 0.6666666666666666,
+        "wer_pythainlp_percent": 66.66666666666666,
+        "semantic_similarity": 0.8950487375259399,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 6,
+            "hits": 1
+        },
+        "reference_length": 91,
+        "hypothesis_length": 94,
+        "pythainlp_engine": "newmm",
+        "reference_text": "จนท.นำสุนัข K9 ค้นหาร่างผู้สูญหาย ภายใต้ซากตีก สตง. ถล่ม เบื้องต้นยังไม่พบผู้เสียชีวิตเพิ่ม",
+        "hypothesis_text": "จนท.นาสุนัข ik9 ค้นหาร่างผู้สูญหาย ภายไต้ชากติก ฺสตd. ฺถล่ม ฺเบืองต้นยังไม่พบผู้เสียชีวิตเพิ่ม",
+        "reference_tokens": [
+            "จนท.",
+            "นำ",
+            "สุนัข",
+            " ",
+            "K",
+            "9",
+            " ",
+            "ค้นหา",
+            "ร่าง",
+            "ผู้",
+            "สูญหาย",
+            " ",
+            "ภายใต้",
+            "ซาก",
+            "ตี",
+            "ก",
+            " ",
+            "สตง.",
+            " ",
+            "ถล่ม",
+            " ",
+            "เบื้องต้น",
+            "ยัง",
+            "ไม่",
+            "พบ",
+            "ผู้เสียชีวิต",
+            "เพิ่ม"
+        ],
+        "hypothesis_tokens": [
+            "จนท.",
+            "นา",
+            "สุนัข",
+            " ",
+            "ik",
+            "9",
+            " ",
+            "ค้นหา",
+            "ร่าง",
+            "ผู้",
+            "สูญหาย",
+            " ",
+            "ภาย",
+            "ไต้",
+            "ชา",
+            "ก",
+            "ติก",
+            " ",
+            "ฺสต",
+            "d",
+            ".",
+            " ",
+            "ฺ",
+            "ถล่ม",
+            " ",
+            "ฺ",
+            "เบือ",
+            "ง",
+            "ต้น",
+            "ยัง",
+            "ไม่",
+            "พบ",
+            "ผู้เสียชีวิต",
+            "เพิ่ม"
+        ]
+    },
+    {
+        "cer": 0.7857142857142857,
+        "cer_percent": 78.57142857142857,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.34451824426651,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 14,
+        "hypothesis_length": 7,
+        "pythainlp_engine": "newmm",
+        "reference_text": "tnnnewsข่าวค่ำ",
+        "hypothesis_text": "ข้าวพ้า",
+        "reference_tokens": [
+            "tnnnews",
+            "ข่าว",
+            "ค่ำ"
+        ],
+        "hypothesis_tokens": [
+            "ข้าว",
+            "พ้า"
+        ]
+    },
+    {
+        "cer": 1.0,
+        "cer_percent": 100.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.540841817855835,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 9,
+        "hypothesis_length": 1,
+        "pythainlp_engine": "newmm",
+        "reference_text": "tnn16live",
+        "hypothesis_text": "ู",
+        "reference_tokens": [
+            "tnn",
+            "16",
+            "live"
+        ],
+        "hypothesis_tokens": [
+            "ู"
+        ]
+    },
+    {
+        "cer": 0.08823529411764706,
+        "cer_percent": 8.823529411764707,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.375,
+        "wer_pythainlp_percent": 37.5,
+        "semantic_similarity": 0.7685929536819458,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 34,
+        "hypothesis_length": 32,
+        "pythainlp_engine": "newmm",
+        "reference_text": "พายุซูเปอร์เซลถล่มสหรัฐฯซ้ำน้ำท่วม",
+        "hypothesis_text": "พายุซูเปอร์เซลถล่มสหรัฐฯซำนาท่วม",
+        "reference_tokens": [
+            "พายุ",
+            "ซูเปอร์",
+            "เซ",
+            "ล",
+            "ถล่ม",
+            "สหรัฐฯ",
+            "ซ้ำ",
+            "น้ำท่วม"
+        ],
+        "hypothesis_tokens": [
+            "พายุ",
+            "ซูเปอร์",
+            "เซ",
+            "ล",
+            "ถล่ม",
+            "สหรัฐฯ",
+            "ซำ",
+            "นา",
+            "ท่วม"
+        ]
+    },
+    {
+        "cer": 0.045454545454545456,
+        "cer_percent": 4.545454545454546,
+        "wer": 0.42857142857142855,
+        "wer_percent": 42.857142857142854,
+        "wer_pythainlp": 0.2727272727272727,
+        "wer_pythainlp_percent": 27.27272727272727,
+        "semantic_similarity": 0.9750637412071228,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 1,
+            "substitutions": 2,
+            "hits": 4
+        },
+        "reference_length": 66,
+        "hypothesis_length": 65,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ขึ้นทะเบียน เงินช่วยเหลือชาวนา เงินไร่ละ 1000 รับเยียวยา นาปรัง 68",
+        "hypothesis_text": "ขื้นทะเบียน เงินช่วยเหลือชาวนา เงินไร่ละ 1000 ธับเยียวยานาปรัง 68",
+        "reference_tokens": [
+            "ขึ้นทะเบียน",
+            " ",
+            "เงินช่วยเหลือ",
+            "ชาวนา",
+            " ",
+            "เงิน",
+            "ไร่",
+            "ละ",
+            " ",
+            "1000",
+            " ",
+            "รับ",
+            "เยียวยา",
+            " ",
+            "นาปรัง",
+            " ",
+            "68"
+        ],
+        "hypothesis_tokens": [
+            "ขื้น",
+            "ทะเบียน",
+            " ",
+            "เงินช่วยเหลือ",
+            "ชาวนา",
+            " ",
+            "เงิน",
+            "ไร่",
+            "ละ",
+            " ",
+            "1000",
+            " ",
+            "ธับ",
+            "เยียวยา",
+            "นาปรัง",
+            " ",
+            "68"
+        ]
+    },
+    {
+        "cer": 0.8888888888888888,
+        "cer_percent": 88.88888888888889,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.5915235280990601,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 9,
+        "hypothesis_length": 2,
+        "pythainlp_engine": "newmm",
+        "reference_text": "tnn16live",
+        "hypothesis_text": "า6",
+        "reference_tokens": [
+            "tnn",
+            "16",
+            "live"
+        ],
+        "hypothesis_tokens": [
+            "า",
+            "6"
+        ]
+    },
+    {
+        "cer": 0.7142857142857143,
+        "cer_percent": 71.42857142857143,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.8175192475318909,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 14,
+        "hypothesis_length": 7,
+        "pythainlp_engine": "newmm",
+        "reference_text": "tnnnewsข่าวค่ำ",
+        "hypothesis_text": "ข่าวผาร",
+        "reference_tokens": [
+            "tnnnews",
+            "ข่าว",
+            "ค่ำ"
+        ],
+        "hypothesis_tokens": [
+            "ข่าว",
+            "ผา",
+            "ร"
+        ]
+    },
+    {
+        "cer": 0.9166666666666666,
+        "cer_percent": 91.66666666666666,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.335016667842865,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 12,
+        "hypothesis_length": 3,
+        "pythainlp_engine": "newmm",
+        "reference_text": "pptvhd36live",
+        "hypothesis_text": "e6ํ",
+        "reference_tokens": [
+            "pptvhd",
+            "36",
+            "live"
+        ],
+        "hypothesis_tokens": [
+            "e",
+            "6",
+            "ํ"
+        ]
+    },
+    {
+        "cer": 0.0,
+        "cer_percent": 0.0,
+        "wer": 0.0,
+        "wer_percent": 0.0,
+        "wer_pythainlp": 0.0,
+        "wer_pythainlp_percent": 0.0,
+        "semantic_similarity": 1.0000001192092896,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 0,
+            "hits": 1
+        },
+        "reference_length": 19,
+        "hypothesis_length": 19,
+        "pythainlp_engine": "newmm",
+        "reference_text": "สัมภาษณ์ทางโทรศัพท์",
+        "hypothesis_text": "สัมภาษณ์ทางโทรศัพท์",
+        "reference_tokens": [
+            "สัมภาษณ์",
+            "ทาง",
+            "โทรศัพท์"
+        ],
+        "hypothesis_tokens": [
+            " ",
+            "สัมภาษณ์",
+            "ทาง",
+            "โทรศัพท์"
+        ]
+    },
+    {
+        "cer": 0.0,
+        "cer_percent": 0.0,
+        "wer": 0.0,
+        "wer_percent": 0.0,
+        "wer_pythainlp": 0.0,
+        "wer_pythainlp_percent": 0.0,
+        "semantic_similarity": 1.0,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 0,
+            "hits": 1
+        },
+        "reference_length": 24,
+        "hypothesis_length": 24,
+        "pythainlp_engine": "newmm",
+        "reference_text": "เชื่อใจก่อนนะครับหลายรอบ",
+        "hypothesis_text": "เชื่อใจก่อนนะครับหลายรอบ",
+        "reference_tokens": [
+            "เชื่อใจ",
+            "ก่อน",
+            "นะ",
+            "ครับ",
+            "หลาย",
+            "รอบ"
+        ],
+        "hypothesis_tokens": [
+            "เชื่อใจ",
+            "ก่อน",
+            "นะ",
+            "ครับ",
+            "หลาย",
+            "รอบ"
+        ]
+    },
+    {
+        "cer": 0.02631578947368421,
+        "cer_percent": 2.631578947368421,
+        "wer": 0.3333333333333333,
+        "wer_percent": 33.33333333333333,
+        "wer_pythainlp": 0.25,
+        "wer_pythainlp_percent": 25.0,
+        "semantic_similarity": 0.9954276084899902,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 2
+        },
+        "reference_length": 38,
+        "hypothesis_length": 38,
+        "pythainlp_engine": "newmm",
+        "reference_text": "สอท.เตือน \"จ้างนอนโรงแรม\" แค่หลอกลงทุน",
+        "hypothesis_text": "สอท.เตือน \"จ้างนอนโรงแรม\" แค่หลอกลบทุน",
+        "reference_tokens": [
+            "สอ",
+            "ท",
+            ".",
+            "เตือน",
+            " ",
+            "\"",
+            "จ้าง",
+            "นอน",
+            "โรงแรม",
+            "\"",
+            " ",
+            "แค่",
+            "หลอก",
+            "ลงทุน"
+        ],
+        "hypothesis_tokens": [
+            "สอ",
+            "ท",
+            ".",
+            "เตือน",
+            " ",
+            "\"",
+            "จ้าง",
+            "นอน",
+            "โรงแรม",
+            "\"",
+            " ",
+            "แค่",
+            "หลอ",
+            "กลบ",
+            "ทุน"
+        ]
+    },
+    {
+        "cer": 0.09090909090909091,
+        "cer_percent": 9.090909090909092,
+        "wer": 2.0,
+        "wer_percent": 200.0,
+        "wer_pythainlp": 0.0,
+        "wer_pythainlp_percent": 0.0,
+        "semantic_similarity": 0.9385055303573608,
+        "edit_operations": {
+            "insertions": 1,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 11,
+        "hypothesis_length": 12,
+        "pythainlp_engine": "newmm",
+        "reference_text": "เข้มข่าวค่ำ",
+        "hypothesis_text": "เข้มข่าว ค่ำ",
+        "reference_tokens": [
+            "เข้ม",
+            "ข่าว",
+            "ค่ำ"
+        ],
+        "hypothesis_tokens": [
+            "เข้ม",
+            "ข่าว",
+            " ",
+            "ค่ำ"
+        ]
+    },
+    {
+        "cer": 0.8829787234042553,
+        "cer_percent": 88.29787234042553,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": -0.03349936380982399,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 2,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 94,
+        "hypothesis_length": 32,
+        "pythainlp_engine": "newmm",
+        "reference_text": "พล.ต.ท.โสภณรัชต์ ให้สัมภาษณ์ตามรายงานจากแพทย์ผู้ทำการรักษาไม่เคยพูดว่านายทักษิณ เป็นคนไข้วิกฤต",
+        "hypothesis_text": "ขงเการาาธราธิิ์ติยทาพยต์ยิทิราท\"",
+        "reference_tokens": [
+            "พล.ต.ท.",
+            "โสภณ",
+            "รัชต์",
+            " ",
+            "ให้",
+            "สัมภาษณ์",
+            "ตาม",
+            "รายงาน",
+            "จาก",
+            "แพทย์",
+            "ผู้ทำ",
+            "การรักษา",
+            "ไม่",
+            "เคย",
+            "พูดว่า",
+            "นาย",
+            "ทักษิณ",
+            " ",
+            "เป็น",
+            "คนไข้",
+            "วิกฤต"
+        ],
+        "hypothesis_tokens": [
+            "ขง",
+            "เกา",
+            "รา",
+            "า",
+            "ธรา",
+            "ธิิ์",
+            "ติ",
+            "ย",
+            "ทา",
+            "พยต์ยิทิ",
+            "รา",
+            "ท",
+            "\""
+        ]
+    },
+    {
+        "cer": 0.8769230769230769,
+        "cer_percent": 87.6923076923077,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.031432293355464935,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 65,
+        "hypothesis_length": 22,
+        "pythainlp_engine": "newmm",
+        "reference_text": "การที่ต้องมาถูกรับโทษเพียงเพราะให้ข่าวถือว่าไม่ได้รับความเป็นธรรม",
+        "hypothesis_text": "กวิจการาศิริทมาราร่กชา",
+        "reference_tokens": [
+            "การ",
+            "ที่",
+            "ต้อง",
+            "มา",
+            "ถูก",
+            "รับโทษ",
+            "เพียง",
+            "เพราะ",
+            "ให้ข่าว",
+            "ถือ",
+            "ว่าไม่ได้",
+            "รับ",
+            "ความเป็นธรรม"
+        ],
+        "hypothesis_tokens": [
+            "ก",
+            "วิ",
+            "จ",
+            "กา",
+            "รา",
+            "ศิ",
+            "ริ",
+            "ท",
+            "มา",
+            "รา",
+            "ร่ก",
+            "ชา"
+        ]
+    },
+    {
+        "cer": 0.4444444444444444,
+        "cer_percent": 44.44444444444444,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.75,
+        "wer_pythainlp_percent": 75.0,
+        "semantic_similarity": 0.6583254337310791,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 1,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 27,
+        "hypothesis_length": 16,
+        "pythainlp_engine": "newmm",
+        "reference_text": "สุรินทร์ สู่สวัสดิ์ทนายความ",
+        "hypothesis_text": "สุรินทร์ค่สวัสดิ",
+        "reference_tokens": [
+            "สุรินทร์",
+            " ",
+            "สู่",
+            "สวัสดิ์",
+            "ทนายความ"
+        ],
+        "hypothesis_tokens": [
+            "สุรินทร์",
+            "ค่",
+            "สวัสดิ"
+        ]
+    },
+    {
+        "cer": 1.0,
+        "cer_percent": 100.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.3932344615459442,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 12,
+        "hypothesis_length": 5,
+        "pythainlp_engine": "newmm",
+        "reference_text": "pptvhd36live",
+        "hypothesis_text": "eิรู์",
+        "reference_tokens": [
+            "pptvhd",
+            "36",
+            "live"
+        ],
+        "hypothesis_tokens": [
+            "e",
+            "ิรู์"
+        ]
+    },
+    {
+        "cer": 0.45454545454545453,
+        "cer_percent": 45.45454545454545,
+        "wer": 2.0,
+        "wer_percent": 200.0,
+        "wer_pythainlp": 1.3333333333333333,
+        "wer_pythainlp_percent": 133.33333333333331,
+        "semantic_similarity": 0.5561222434043884,
+        "edit_operations": {
+            "insertions": 1,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 11,
+        "hypothesis_length": 12,
+        "pythainlp_engine": "newmm",
+        "reference_text": "เข้มข่าวค่ำ",
+        "hypothesis_text": "เบิมข่าร จ่ำ",
+        "reference_tokens": [
+            "เข้ม",
+            "ข่าว",
+            "ค่ำ"
+        ],
+        "hypothesis_tokens": [
+            "เบิม",
+            "ข่า",
+            "ร",
+            " ",
+            "จ่ำ"
+        ]
+    },
+    {
+        "cer": 0.46153846153846156,
+        "cer_percent": 46.15384615384615,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.36962318420410156,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 2,
+            "hits": 0
+        },
+        "reference_length": 13,
+        "hypothesis_length": 10,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ไทยรัฐ TV32HD",
+        "hypothesis_text": "ไทยรัไพ 32",
+        "reference_tokens": [
+            "ไทยรัฐ",
+            " ",
+            "TV",
+            "32",
+            "HD"
+        ],
+        "hypothesis_tokens": [
+            "ไทย",
+            "รั",
+            "ไพ",
+            " ",
+            "32"
+        ]
+    },
+    {
+        "cer": 0.8,
+        "cer_percent": 80.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.5090332627296448,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 15,
+        "hypothesis_length": 12,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ไทยรัฐนิวส์โชว์",
+        "hypothesis_text": "มิ่ทิธัิติว์",
+        "reference_tokens": [
+            "ไทยรัฐ",
+            "นิวส์",
+            "โชว์"
+        ],
+        "hypothesis_tokens": [
+            "มิ่ทิธัิติว์"
+        ]
+    },
+    {
+        "cer": 0.15384615384615385,
+        "cer_percent": 15.384615384615385,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.8,
+        "wer_pythainlp_percent": 80.0,
+        "semantic_similarity": 0.7964344024658203,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 5,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 52,
+        "hypothesis_length": 49,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ชื่นชม! เด็กวัดจบ ป.โท เกียรตินิยมอันดับ 1 ที่อังกฤษ",
+        "hypothesis_text": "ชื่นชม!ฺเก็กวัดจบบ.โทเกียรตินิยมอันคับ1เที่อังกฤษ",
+        "reference_tokens": [
+            "ชื่นชม",
+            "!",
+            " ",
+            "เด็กวัด",
+            "จบ",
+            " ",
+            "ป.โท",
+            " ",
+            "เกียรตินิยม",
+            "อันดับ",
+            " ",
+            "1",
+            " ",
+            "ที่",
+            "อังกฤษ"
+        ],
+        "hypothesis_tokens": [
+            "ชื่นชม",
+            "!",
+            "ฺเก็ก",
+            "วัด",
+            "จบ",
+            "บ.",
+            "โท",
+            "เกียรตินิยม",
+            "อัน",
+            "คับ",
+            "1",
+            "เท",
+            "ี่",
+            "อังกฤษ"
+        ]
+    },
+    {
+        "cer": 0.0,
+        "cer_percent": 0.0,
+        "wer": 0.0,
+        "wer_percent": 0.0,
+        "wer_pythainlp": 0.0,
+        "wer_pythainlp_percent": 0.0,
+        "semantic_similarity": 0.9999999403953552,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 0,
+            "hits": 1
+        },
+        "reference_length": 33,
+        "hypothesis_length": 33,
+        "pythainlp_engine": "newmm",
+        "reference_text": "สนามบินน้ำร้อนมากครับเมืองนนทบุรี",
+        "hypothesis_text": "สนามบินน้ำร้อนมากครับเมืองนนทบุรี",
+        "reference_tokens": [
+            "สนามบิน",
+            "น้ำร้อน",
+            "มาก",
+            "ครับ",
+            "เมือง",
+            "นนทบุรี"
+        ],
+        "hypothesis_tokens": [
+            "สนามบิน",
+            "น้ำร้อน",
+            "มาก",
+            "ครับ",
+            "เมือง",
+            "นนทบุรี"
+        ]
+    },
+    {
+        "cer": 0.8823529411764706,
+        "cer_percent": 88.23529411764706,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.11126454919576645,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 2,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 34,
+        "hypothesis_length": 12,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ภาพจาก FacebookSundailyNews Online",
+        "hypothesis_text": "sman[๓@coon6",
+        "reference_tokens": [
+            "ภาพ",
+            "จาก",
+            " ",
+            "FacebookSundailyNews",
+            " ",
+            "Online"
+        ],
+        "hypothesis_tokens": [
+            "sman",
+            "[",
+            "๓",
+            "@coon6"
+        ]
+    },
+    {
+        "cer": 0.42857142857142855,
+        "cer_percent": 42.857142857142854,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.3333333333333333,
+        "wer_pythainlp_percent": 33.33333333333333,
+        "semantic_similarity": 0.4991219639778137,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 14,
+        "hypothesis_length": 8,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ข่าวเย็นไทยรัฐ",
+        "hypothesis_text": "ข่าวเย็น",
+        "reference_tokens": [
+            "ข่าว",
+            "เย็น",
+            "ไทยรัฐ"
+        ],
+        "hypothesis_tokens": [
+            "ข่าว",
+            "เย็น"
+        ]
+    },
+    {
+        "cer": 0.031746031746031744,
+        "cer_percent": 3.1746031746031744,
+        "wer": 0.6,
+        "wer_percent": 60.0,
+        "wer_pythainlp": 0.06666666666666667,
+        "wer_pythainlp_percent": 6.666666666666667,
+        "semantic_similarity": 0.9867558479309082,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 1,
+            "substitutions": 2,
+            "hits": 2
+        },
+        "reference_length": 63,
+        "hypothesis_length": 62,
+        "pythainlp_engine": "newmm",
+        "reference_text": "สวัสดีค่ะ ข่าวเย็นไทยรัฐ คุณเบิร์ด คุณวราภรณ์ ดอนเมืองก็ร้อนค่ะ",
+        "hypothesis_text": "สวัสดีค่ะ ข่าวเย็นไทยรัฐคุณเบิร์ด คุณวรากรณ์ ดอนเมืองก็ร้อนค่ะ",
+        "reference_tokens": [
+            "สวัสดี",
+            "ค่ะ",
+            " ",
+            "ข่าว",
+            "เย็น",
+            "ไทยรัฐ",
+            " ",
+            "คุณ",
+            "เบิร์ด",
+            " ",
+            "คุณ",
+            "ว",
+            "รา",
+            "ภรณ์",
+            " ",
+            "ดอนเมือง",
+            "ก็",
+            "ร้อน",
+            "ค่ะ"
+        ],
+        "hypothesis_tokens": [
+            " ",
+            "สวัสดี",
+            "ค่ะ",
+            " ",
+            "ข่าว",
+            "เย็น",
+            "ไทยรัฐ",
+            "คุณ",
+            "เบิร์ด",
+            " ",
+            "คุณ",
+            "ว",
+            "รา",
+            "กรณ์",
+            " ",
+            "ดอนเมือง",
+            "ก็",
+            "ร้อน",
+            "ค่ะ"
+        ]
+    },
+    {
+        "cer": 0.38461538461538464,
+        "cer_percent": 38.46153846153847,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.5,
+        "wer_pythainlp_percent": 50.0,
+        "semantic_similarity": 0.5592319965362549,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 2,
+            "hits": 0
+        },
+        "reference_length": 13,
+        "hypothesis_length": 11,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ไทยรัฐ TV32HD",
+        "hypothesis_text": "ไทยรัฐไพ 32",
+        "reference_tokens": [
+            "ไทยรัฐ",
+            " ",
+            "TV",
+            "32",
+            "HD"
+        ],
+        "hypothesis_tokens": [
+            "ไทยรัฐ",
+            "ไพ",
+            " ",
+            "32"
+        ]
+    },
+    {
+        "cer": 0.46153846153846156,
+        "cer_percent": 46.15384615384615,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.5,
+        "wer_pythainlp_percent": 150.0,
+        "semantic_similarity": 0.3476680517196655,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 2,
+            "hits": 0
+        },
+        "reference_length": 13,
+        "hypothesis_length": 11,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ไทยรัฐ TV32HD",
+        "hypothesis_text": "ไทยริฐ|ิ 32",
+        "reference_tokens": [
+            "ไทยรัฐ",
+            " ",
+            "TV",
+            "32",
+            "HD"
+        ],
+        "hypothesis_tokens": [
+            "ไทย",
+            "ริ",
+            "ฐ",
+            "|",
+            "ิ",
+            " ",
+            "32"
+        ]
+    },
+    {
+        "cer": 0.8888888888888888,
+        "cer_percent": 88.88888888888889,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.09912337362766266,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 3,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 72,
+        "hypothesis_length": 12,
+        "pythainlp_engine": "newmm",
+        "reference_text": "พี่สาวไม่เชื่อน้องถูกฆ่าเพราะเรื่องไฮโลอ้างอิง : นางคำพอง (พี่สาวผู้ตาย)",
+        "hypothesis_text": "พิสทวไมเช็อ_",
+        "reference_tokens": [
+            "พี่สาว",
+            "ไม่",
+            "เชื่อ",
+            "น้อง",
+            "ถูก",
+            "ฆ่า",
+            "เพราะ",
+            "เรื่อง",
+            "ไฮโล",
+            "อ้างอิง",
+            " ",
+            ":",
+            " ",
+            "นาง",
+            "คำ",
+            "พอง",
+            " ",
+            "(",
+            "พี่สาว",
+            "ผู้ตาย",
+            ")"
+        ],
+        "hypothesis_tokens": [
+            "พิสทวไมเช็อ",
+            "_"
+        ]
+    },
+    {
+        "cer": 0.948051948051948,
+        "cer_percent": 94.8051948051948,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": -0.0051363380625844,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 1,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 77,
+        "hypothesis_length": 7,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ไม่เชื่อผู้ก่อเหตุโกรธแค้นน้องเพราะเรื่องไฮโลเพราะเกิดขึ้นตั้งแต่10 ปีที่แล้ว",
+        "hypothesis_text": "กาทราา=",
+        "reference_tokens": [
+            "ไม่",
+            "เชื่อ",
+            "ผู้ก่อเหตุ",
+            "โกรธแค้น",
+            "น้อง",
+            "เพราะ",
+            "เรื่อง",
+            "ไฮโล",
+            "เพราะ",
+            "เกิดขึ้น",
+            "ตั้งแต่",
+            "10",
+            " ",
+            "ปี",
+            "ที่แล้ว"
+        ],
+        "hypothesis_tokens": [
+            "กา",
+            "ท",
+            "รา",
+            "า",
+            "="
+        ]
+    },
+    {
+        "cer": 0.09523809523809523,
+        "cer_percent": 9.523809523809524,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.3333333333333333,
+        "wer_pythainlp_percent": 33.33333333333333,
+        "semantic_similarity": 0.5257042646408081,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 1,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 21,
+        "hypothesis_length": 20,
+        "pythainlp_engine": "newmm",
+        "reference_text": "นายทองมา (ผู้ก่อเหตุ)",
+        "hypothesis_text": "นายทอหมา(ผู้ก่อเหตุ)",
+        "reference_tokens": [
+            "นาย",
+            "ทอง",
+            "มา",
+            " ",
+            "(",
+            "ผู้ก่อเหตุ",
+            ")"
+        ],
+        "hypothesis_tokens": [
+            "นาย",
+            "ทอ",
+            "หมา",
+            "(",
+            "ผู้ก่อเหตุ",
+            ")"
+        ]
+    },
+    {
+        "cer": 0.5384615384615384,
+        "cer_percent": 53.84615384615385,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.25,
+        "wer_pythainlp_percent": 125.0,
+        "semantic_similarity": 0.3999311327934265,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 2,
+            "hits": 0
+        },
+        "reference_length": 13,
+        "hypothesis_length": 12,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ไทยรัฐ TV32HD",
+        "hypothesis_text": "ไไทยรัสไฟ 32",
+        "reference_tokens": [
+            "ไทยรัฐ",
+            " ",
+            "TV",
+            "32",
+            "HD"
+        ],
+        "hypothesis_tokens": [
+            "ไ",
+            "ไทย",
+            "รัส",
+            "ไฟ",
+            " ",
+            "32"
+        ]
+    },
+    {
+        "cer": 0.7777777777777778,
+        "cer_percent": 77.77777777777779,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.6305919885635376,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 9,
+        "hypothesis_length": 3,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ตะลอนข่าว",
+        "hypothesis_text": "ตอู",
+        "reference_tokens": [
+            "ตะลอน",
+            "ข่าว"
+        ],
+        "hypothesis_tokens": [
+            "ต",
+            "อู"
+        ]
+    },
+    {
+        "cer": 0.03571428571428571,
+        "cer_percent": 3.571428571428571,
+        "wer": 0.2,
+        "wer_percent": 20.0,
+        "wer_pythainlp": 0.08333333333333333,
+        "wer_pythainlp_percent": 8.333333333333332,
+        "semantic_similarity": 0.9932634830474854,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 4
+        },
+        "reference_length": 56,
+        "hypothesis_length": 57,
+        "pythainlp_engine": "newmm",
+        "reference_text": "อ่างทอง งิ้วแก้ผ้า วิ่งแก้บนหลวงพ่อขาว หลังจับได้ \"ใบดำ\"",
+        "hypothesis_text": "อ่างทอง เจิ้วแก้ผ้า วิ่งแก้บนหลวงพ่อขาว หลังจับได้ \"ใบดำ\"",
+        "reference_tokens": [
+            "อ่างทอง",
+            " ",
+            "งิ้ว",
+            "แก้ผ้า",
+            " ",
+            "วิ่ง",
+            "แก้บน",
+            "หลวงพ่อ",
+            "ขาว",
+            " ",
+            "หลัง",
+            "จับได้",
+            " ",
+            "\"",
+            "ใบดำ",
+            "\""
+        ],
+        "hypothesis_tokens": [
+            "อ่างทอง",
+            " ",
+            "เจิ้ว",
+            "แก้ผ้า",
+            " ",
+            "วิ่ง",
+            "แก้บน",
+            "หลวงพ่อ",
+            "ขาว",
+            " ",
+            "หลัง",
+            "จับได้",
+            " ",
+            "\"",
+            "ใบดำ",
+            "\""
+        ]
+    },
+    {
+        "cer": 0.02040816326530612,
+        "cer_percent": 2.0408163265306123,
+        "wer": 0.3333333333333333,
+        "wer_percent": 33.33333333333333,
+        "wer_pythainlp": 0.0,
+        "wer_pythainlp_percent": 0.0,
+        "semantic_similarity": 0.9986161589622498,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 1,
+            "substitutions": 1,
+            "hits": 4
+        },
+        "reference_length": 49,
+        "hypothesis_length": 48,
+        "pythainlp_engine": "newmm",
+        "reference_text": "สวัสดีครับ เมนู คลายร้อน ข้าวเหนียว มะม่วง ครับผม",
+        "hypothesis_text": "สวัสดีครับ เมนู คลายร้อนข้าวเหนียว มะม่วง ครับผม",
+        "reference_tokens": [
+            "สวัสดี",
+            "ครับ",
+            " ",
+            "เมนู",
+            " ",
+            "คลาย",
+            "ร้อน",
+            " ",
+            "ข้าวเหนียว",
+            " ",
+            "มะม่วง",
+            " ",
+            "ครับผม"
+        ],
+        "hypothesis_tokens": [
+            " ",
+            "สวัสดี",
+            "ครับ",
+            " ",
+            "เมนู",
+            " ",
+            "คลาย",
+            "ร้อน",
+            "ข้าวเหนียว",
+            " ",
+            "มะม่วง",
+            " ",
+            "ครับผม"
+        ]
+    },
+    {
+        "cer": 0.875,
+        "cer_percent": 87.5,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.10428642481565475,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 16,
+        "hypothesis_length": 2,
+        "pythainlp_engine": "newmm",
+        "reference_text": "เช้านี้ที่หมอชิต",
+        "hypothesis_text": "เี",
+        "reference_tokens": [
+            "เช้านี้",
+            "ที่",
+            "หมอชิต"
+        ],
+        "hypothesis_tokens": [
+            "เี"
+        ]
+    },
+    {
+        "cer": 1.0,
+        "cer_percent": 100.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.44114017486572266,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 7,
+        "hypothesis_length": 2,
+        "pythainlp_engine": "newmm",
+        "reference_text": "7HDlive",
+        "hypothesis_text": "qง",
+        "reference_tokens": [
+            "7",
+            "HDlive"
+        ],
+        "hypothesis_tokens": [
+            "q",
+            "ง"
+        ]
+    },
+    {
+        "cer": 0.16666666666666666,
+        "cer_percent": 16.666666666666664,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 2.0,
+        "wer_pythainlp_percent": 200.0,
+        "semantic_similarity": 0.7183386087417603,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 12,
+        "hypothesis_length": 13,
+        "pythainlp_engine": "newmm",
+        "reference_text": "จ.นครราชสีมา",
+        "hypothesis_text": "จจ.นครรามสีมา",
+        "reference_tokens": [
+            "จ.",
+            "นครราชสีมา"
+        ],
+        "hypothesis_tokens": [
+            "จ",
+            "จ.",
+            "นคร",
+            "ราม",
+            "สีมา"
+        ]
+    },
+    {
+        "cer": 0.7966101694915254,
+        "cer_percent": 79.66101694915254,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.25475966930389404,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 1,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 59,
+        "hypothesis_length": 33,
+        "pythainlp_engine": "newmm",
+        "reference_text": "กลุ่มชายฉกรรจ์อ้างเป็นตำรวจรุมทำร้าย ยิงปืนขู่หนุ่มการไฟฟ้า",
+        "hypothesis_text": "ไภลmาธ้ายฉภิธรนข้านเมืณาต์ำรวจู้า",
+        "reference_tokens": [
+            "กลุ่ม",
+            "ชายฉกรรจ์",
+            "อ้าง",
+            "เป็น",
+            "ตำรวจ",
+            "รุม",
+            "ทำร้าย",
+            " ",
+            "ยิงปืน",
+            "ขู่",
+            "หนุ่ม",
+            "การไฟฟ้า"
+        ],
+        "hypothesis_tokens": [
+            "ไภล",
+            "m",
+            "าธ้ายฉภิธรน",
+            "ข้า",
+            "น",
+            "เม",
+            "ืณาต์ำรว",
+            "จู้",
+            "า"
+        ]
+    },
+    {
+        "cer": 0.25,
+        "cer_percent": 25.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 2.25,
+        "wer_pythainlp_percent": 225.0,
+        "semantic_similarity": 0.27623313665390015,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 28,
+        "hypothesis_length": 28,
+        "pythainlp_engine": "newmm",
+        "reference_text": "อยู่ระหว่างรวบรวมพยานหลักฐาน",
+        "hypothesis_text": "อยู่ระห่าปร]บร]มมยานห์ลักษาน",
+        "reference_tokens": [
+            "อยู่",
+            "ระหว่าง",
+            "รวบรวม",
+            "พยานหลักฐาน"
+        ],
+        "hypothesis_tokens": [
+            "อยู่",
+            "ระ",
+            "ห่า",
+            "ปร",
+            "]",
+            "บร",
+            "]",
+            "มมยานห์",
+            "ลัก",
+            "ษาน"
+        ]
+    },
+    {
+        "cer": 1.0,
+        "cer_percent": 100.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": -0.029915420338511467,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 8,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 84,
+        "hypothesis_length": 2,
+        "pythainlp_engine": "newmm",
+        "reference_text": "กรุงเทพฯน.ส.มณฑาทิพย์ ขาวอินทร์(ทราย) อายุ 37 ปีเจ้าของบ้านเช่าเสียชีวิต : 7 ก.ค. 58",
+        "hypothesis_text": "==",
+        "reference_tokens": [
+            "กรุงเทพฯ",
+            "น.ส.",
+            "มณฑา",
+            "ทิพย์",
+            " ",
+            "ขาว",
+            "อินทร์",
+            "(",
+            "ทราย",
+            ")",
+            " ",
+            "อายุ",
+            " ",
+            "37",
+            " ",
+            "ปี",
+            "เจ้าของ",
+            "บ้านเช่า",
+            "เสียชีวิต",
+            " ",
+            ":",
+            " ",
+            "7",
+            " ",
+            "ก.ค.",
+            " ",
+            "58"
+        ],
+        "hypothesis_tokens": [
+            "=="
+        ]
+    },
+    {
+        "cer": 0.6666666666666666,
+        "cer_percent": 66.66666666666666,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.36391252279281616,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 21,
+        "hypothesis_length": 9,
+        "pythainlp_engine": "newmm",
+        "reference_text": "เที่ยงวันทันเหตุการณ์",
+        "hypothesis_text": "เทียววันิ",
+        "reference_tokens": [
+            "เที่ยงวัน",
+            "ทัน",
+            "เหตุการณ์"
+        ],
+        "hypothesis_tokens": [
+            "เทียว",
+            "วันิ"
+        ]
+    },
+    {
+        "cer": 1.0,
+        "cer_percent": 100.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.22395017743110657,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 7,
+        "hypothesis_length": 4,
+        "pythainlp_engine": "newmm",
+        "reference_text": "3HDlive",
+        "hypothesis_text": "(q)=",
+        "reference_tokens": [
+            "3",
+            "HDlive"
+        ],
+        "hypothesis_tokens": [
+            "(q)="
+        ]
+    },
+    {
+        "cer": 0.03125,
+        "cer_percent": 3.125,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.16666666666666666,
+        "wer_pythainlp_percent": 16.666666666666664,
+        "semantic_similarity": 0.9922796487808228,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 32,
+        "hypothesis_length": 32,
+        "pythainlp_engine": "newmm",
+        "reference_text": "พม.เปิดสถิติความรุนแรงในครอบครัว",
+        "hypothesis_text": "พม.เปิดสถิติความรุนแรงไนครอบครัว",
+        "reference_tokens": [
+            "พม.",
+            "เปิด",
+            "สถิติ",
+            "ความรุนแรง",
+            "ใน",
+            "ครอบครัว"
+        ],
+        "hypothesis_tokens": [
+            "พม.",
+            "เปิด",
+            "สถิติ",
+            "ความรุนแรง",
+            "ไน",
+            "ครอบครัว"
+        ]
+    },
+    {
+        "cer": 1.0,
+        "cer_percent": 100.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.27103543281555176,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 7,
+        "hypothesis_length": 3,
+        "pythainlp_engine": "newmm",
+        "reference_text": "7HDlive",
+        "hypothesis_text": "();",
+        "reference_tokens": [
+            "7",
+            "HDlive"
+        ],
+        "hypothesis_tokens": [
+            "();"
+        ]
+    },
+    {
+        "cer": 0.875,
+        "cer_percent": 87.5,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.4613268971443176,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 8,
+        "hypothesis_length": 5,
+        "pythainlp_engine": "newmm",
+        "reference_text": "สนามข่าว",
+        "hypothesis_text": "ยื้ทว",
+        "reference_tokens": [
+            "สนาม",
+            "ข่าว"
+        ],
+        "hypothesis_tokens": [
+            "ยื้ทว"
+        ]
+    },
+    {
+        "cer": 0.38461538461538464,
+        "cer_percent": 38.46153846153847,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.75,
+        "wer_pythainlp_percent": 75.0,
+        "semantic_similarity": 0.6059811115264893,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 2,
+            "hits": 0
+        },
+        "reference_length": 13,
+        "hypothesis_length": 11,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ไทยรัฐ TV32HD",
+        "hypothesis_text": "ไทยรัฐ|ฟ 32",
+        "reference_tokens": [
+            "ไทยรัฐ",
+            " ",
+            "TV",
+            "32",
+            "HD"
+        ],
+        "hypothesis_tokens": [
+            "ไทยรัฐ",
+            "|",
+            "ฟ",
+            " ",
+            "32"
+        ]
+    },
+    {
+        "cer": 0.1,
+        "cer_percent": 10.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.5,
+        "wer_pythainlp_percent": 150.0,
+        "semantic_similarity": 0.8409615755081177,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 10,
+        "hypothesis_length": 10,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ข่าวใส่ไข่",
+        "hypothesis_text": "ข่าวใสีไข่",
+        "reference_tokens": [
+            "ข่าว",
+            "ใส่ไข่"
+        ],
+        "hypothesis_tokens": [
+            "ข่าว",
+            "ใส",
+            "ี",
+            "ไข่"
+        ]
+    },
+    {
+        "cer": 0.7954545454545454,
+        "cer_percent": 79.54545454545455,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.9,
+        "wer_pythainlp_percent": 90.0,
+        "semantic_similarity": 0.28584301471710205,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 7,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 44,
+        "hypothesis_length": 11,
+        "pythainlp_engine": "newmm",
+        "reference_text": "เทศกาลสงกรานต์ 11 - 17 เม.ย. 66 7วัน อันตราย",
+        "hypothesis_text": "ไว้นอันตราย",
+        "reference_tokens": [
+            "เทศกาล",
+            "สงกรานต์",
+            " ",
+            "11",
+            " ",
+            "-",
+            " ",
+            "17",
+            " ",
+            "เม.ย.",
+            " ",
+            "66",
+            " ",
+            "7",
+            "วัน",
+            " ",
+            "อันตราย"
+        ],
+        "hypothesis_tokens": [
+            "ไว้",
+            "น",
+            "อันตราย"
+        ]
+    },
+    {
+        "cer": 0.2,
+        "cer_percent": 20.0,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.375,
+        "wer_pythainlp_percent": 137.5,
+        "semantic_similarity": 0.5884683728218079,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 1,
+            "substitutions": 3,
+            "hits": 0
+        },
+        "reference_length": 45,
+        "hypothesis_length": 40,
+        "pythainlp_engine": "newmm",
+        "reference_text": "จังหวัดเกิดอุบัติเหตุสูงสุด จ.พัทลุง 14 ครั้ง",
+        "hypothesis_text": "จังหวักเกิกอุบัติเหตสงสกจ.พัทลุง l4 ครัง",
+        "reference_tokens": [
+            "จังหวัด",
+            "เกิด",
+            "อุบัติเหตุ",
+            "สูงสุด",
+            " ",
+            "จ.",
+            "พัทลุง",
+            " ",
+            "14",
+            " ",
+            "ครั้ง"
+        ],
+        "hypothesis_tokens": [
+            "จัง",
+            "ห",
+            "วัก",
+            "เกิก",
+            "อุบัติ",
+            "เห",
+            "ตสงสก",
+            "จ.",
+            "พัทลุง",
+            " ",
+            "l",
+            "4",
+            " ",
+            "ค",
+            "รัง"
+        ]
+    },
+    {
+        "cer": 0.3103448275862069,
+        "cer_percent": 31.03448275862069,
+        "wer": 0.6,
+        "wer_percent": 60.0,
+        "wer_pythainlp": 0.7272727272727273,
+        "wer_pythainlp_percent": 72.72727272727273,
+        "semantic_similarity": 0.870671808719635,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 2,
+            "substitutions": 1,
+            "hits": 2
+        },
+        "reference_length": 58,
+        "hypothesis_length": 49,
+        "pythainlp_engine": "newmm",
+        "reference_text": "จังหวัดผู้เสียชีวิตสูงสุด จ.ปทุมธานี จ.เพชรบูรณ์จ.เลย 2 ศพ",
+        "hypothesis_text": "จังหวัดยูเสียชีวิตสงสุคฉมลทัมธามิจ.เพชรบรณ์  2 ศพ",
+        "reference_tokens": [
+            "จังหวัด",
+            "ผู้เสียชีวิต",
+            "สูงสุด",
+            " ",
+            "จ.",
+            "ปทุมธานี",
+            " ",
+            "จ.",
+            "เพชรบูรณ์",
+            "จ.",
+            "เลย",
+            " ",
+            "2",
+            " ",
+            "ศพ"
+        ],
+        "hypothesis_tokens": [
+            "จังหวัด",
+            "ยู",
+            "เสียชีวิต",
+            "สง",
+            "สุ",
+            "คฉมลทัมธา",
+            "มิ",
+            "จ.",
+            "เพชร",
+            "บรณ์",
+            "  ",
+            "2",
+            " ",
+            "ศพ"
+        ]
+    },
+    {
+        "cer": 0.18421052631578946,
+        "cer_percent": 18.421052631578945,
+        "wer": 0.75,
+        "wer_percent": 75.0,
+        "wer_pythainlp": 1.3333333333333333,
+        "wer_pythainlp_percent": 133.33333333333331,
+        "semantic_similarity": 0.6444047689437866,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 3,
+            "hits": 1
+        },
+        "reference_length": 38,
+        "hypothesis_length": 40,
+        "pythainlp_engine": "newmm",
+        "reference_text": "จังหวัดผู้บาดเจ็บสุงสุด จ.พัทลุง 18 คน",
+        "hypothesis_text": "จังหวักผู้บาคเจ็บสูงสุค ฺจ.พัทลุง  1d คน",
+        "reference_tokens": [
+            "จังหวัด",
+            "ผู้บาดเจ็บ",
+            "สุ",
+            "ง",
+            "สุด",
+            " ",
+            "จ.",
+            "พัทลุง",
+            " ",
+            "18",
+            " ",
+            "คน"
+        ],
+        "hypothesis_tokens": [
+            "จัง",
+            "ห",
+            "วัก",
+            "ผู้",
+            "บา",
+            "ค",
+            "เจ็บ",
+            "สูง",
+            "สุ",
+            "ค",
+            " ",
+            "ฺ",
+            "จ.",
+            "พัทลุง",
+            "  ",
+            "1",
+            "d",
+            " ",
+            "คน"
+        ]
+    },
+    {
+        "cer": 0.0,
+        "cer_percent": 0.0,
+        "wer": 0.0,
+        "wer_percent": 0.0,
+        "wer_pythainlp": 0.0,
+        "wer_pythainlp_percent": 0.0,
+        "semantic_similarity": 1.0,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 0,
+            "hits": 3
+        },
+        "reference_length": 36,
+        "hypothesis_length": 36,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ที่มา : กรมป้องกันและบรรเทาสาธารณภัย",
+        "hypothesis_text": "ที่มา : กรมป้องกันและบรรเทาสาธารณภัย",
+        "reference_tokens": [
+            "ที่มา",
+            " ",
+            ":",
+            " ",
+            "กรม",
+            "ป้องกัน",
+            "และ",
+            "บรรเทา",
+            "สาธารณภัย"
+        ],
+        "hypothesis_tokens": [
+            "ที่มา",
+            " ",
+            ":",
+            " ",
+            "กรม",
+            "ป้องกัน",
+            "และ",
+            "บรรเทา",
+            "สาธารณภัย"
+        ]
+    },
+    {
+        "cer": 0.041666666666666664,
+        "cer_percent": 4.166666666666666,
+        "wer": 0.5,
+        "wer_percent": 50.0,
+        "wer_pythainlp": 0.25,
+        "wer_pythainlp_percent": 25.0,
+        "semantic_similarity": 0.9862933158874512,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 1
+        },
+        "reference_length": 24,
+        "hypothesis_length": 25,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ท่าน สวัสดีทุกท่านครับผม",
+        "hypothesis_text": "ท่าน ฺสวัสดีทุกท่านครับผม",
+        "reference_tokens": [
+            "ท่าน",
+            " ",
+            "สวัสดี",
+            "ทุกท่าน",
+            "ครับผม"
+        ],
+        "hypothesis_tokens": [
+            "ท่าน",
+            " ",
+            "ฺ",
+            "สวัสดี",
+            "ทุกท่าน",
+            "ครับผม"
+        ]
+    },
+    {
+        "cer": 0.05263157894736842,
+        "cer_percent": 5.263157894736842,
+        "wer": 0.5,
+        "wer_percent": 50.0,
+        "wer_pythainlp": 0.1111111111111111,
+        "wer_pythainlp_percent": 11.11111111111111,
+        "semantic_similarity": 0.9564447402954102,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 1,
+            "substitutions": 1,
+            "hits": 2
+        },
+        "reference_length": 38,
+        "hypothesis_length": 36,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ค้นชุมชน 40 จุด เด็ดปีกผู้ค้ายารายย่อย",
+        "hypothesis_text": "ค้นชุมชน 40 จุดเด็ดปกผู้ค้ายารายย่อย",
+        "reference_tokens": [
+            "ค้น",
+            "ชุมชน",
+            " ",
+            "40",
+            " ",
+            "จุด",
+            " ",
+            "เด็ด",
+            "ปีก",
+            "ผู้ค้า",
+            "ยา",
+            "รายย่อย"
+        ],
+        "hypothesis_tokens": [
+            "ค้น",
+            "ชุมชน",
+            " ",
+            "40",
+            " ",
+            "จุด",
+            "เด็ด",
+            "ปก",
+            "ผู้ค้า",
+            "ยา",
+            "รายย่อย"
+        ]
+    },
+    {
+        "cer": 0.08333333333333333,
+        "cer_percent": 8.333333333333332,
+        "wer": 0.4,
+        "wer_percent": 40.0,
+        "wer_pythainlp": 0.6,
+        "wer_pythainlp_percent": 60.0,
+        "semantic_similarity": 0.9592498540878296,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 2,
+            "hits": 3
+        },
+        "reference_length": 84,
+        "hypothesis_length": 85,
+        "pythainlp_engine": "newmm",
+        "reference_text": "คณะเสนาธิการร่วมเกาหลีใต้เผย ทหารเกาหลีเหนือที่ช่วยรัสเซียรบกว่า 1,000 นาย เสียชีวิต",
+        "hypothesis_text": "เคณะเสนาธิการร่วมเกาหลีไต้พพย ฺทหารเกาหลีเหนือทีช่วยธัสเซียรบกว่า 1,000 นาย เสียชีวิต",
+        "reference_tokens": [
+            "คณะ",
+            "เสนาธิการ",
+            "ร่วม",
+            "เกาหลีใต้",
+            "เผย",
+            " ",
+            "ทหาร",
+            "เกาหลีเหนือ",
+            "ที่",
+            "ช่วย",
+            "รัสเซีย",
+            "รบ",
+            "กว่า",
+            " ",
+            "1,000",
+            " ",
+            "นาย",
+            " ",
+            "เสียชีวิต"
+        ],
+        "hypothesis_tokens": [
+            "เค",
+            "ณะ",
+            "เสนาธิการ",
+            "ร่วม",
+            "เกาหลี",
+            "ไต้",
+            "พพย",
+            " ",
+            "ฺ",
+            "ทหาร",
+            "เกาหลีเหนือ",
+            "ที",
+            "ช่วย",
+            "ธัสเซียรบ",
+            "กว่า",
+            " ",
+            "1,000",
+            " ",
+            "นาย",
+            " ",
+            "เสียชีวิต"
+        ]
+    },
+    {
+        "cer": 0.8888888888888888,
+        "cer_percent": 88.88888888888889,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.45846980810165405,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 9,
+        "hypothesis_length": 1,
+        "pythainlp_engine": "newmm",
+        "reference_text": "tnn16live",
+        "hypothesis_text": "l",
+        "reference_tokens": [
+            "tnn",
+            "16",
+            "live"
+        ],
+        "hypothesis_tokens": [
+            "l"
+        ]
+    },
+    {
+        "cer": 0.7142857142857143,
+        "cer_percent": 71.42857142857143,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.6666666666666666,
+        "wer_pythainlp_percent": 66.66666666666666,
+        "semantic_similarity": 0.8119680881500244,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 14,
+        "hypothesis_length": 7,
+        "pythainlp_engine": "newmm",
+        "reference_text": "tnnnewsข่าวค่ำ",
+        "hypothesis_text": "ข่าวพรู",
+        "reference_tokens": [
+            "tnnnews",
+            "ข่าว",
+            "ค่ำ"
+        ],
+        "hypothesis_tokens": [
+            "ข่าว",
+            "พรู"
+        ]
+    },
+    {
+        "cer": 0.46153846153846156,
+        "cer_percent": 46.15384615384615,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.5395251512527466,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 2,
+            "hits": 0
+        },
+        "reference_length": 13,
+        "hypothesis_length": 11,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ไทยรัฐ TV32HD",
+        "hypothesis_text": "ใทยรัฐไพ 32",
+        "reference_tokens": [
+            "ไทยรัฐ",
+            " ",
+            "TV",
+            "32",
+            "HD"
+        ],
+        "hypothesis_tokens": [
+            "ใทย",
+            "รัฐ",
+            "ไพ",
+            " ",
+            "32"
+        ]
+    },
+    {
+        "cer": 0.7777777777777778,
+        "cer_percent": 77.77777777777779,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 1.0,
+        "wer_pythainlp_percent": 100.0,
+        "semantic_similarity": 0.5794259905815125,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 9,
+        "hypothesis_length": 3,
+        "pythainlp_engine": "newmm",
+        "reference_text": "ตะลอนข่าว",
+        "hypothesis_text": "ตอ๓",
+        "reference_tokens": [
+            "ตะลอน",
+            "ข่าว"
+        ],
+        "hypothesis_tokens": [
+            "ตอ",
+            "๓"
+        ]
+    },
+    {
+        "cer": 0.03333333333333333,
+        "cer_percent": 3.3333333333333335,
+        "wer": 1.0,
+        "wer_percent": 100.0,
+        "wer_pythainlp": 0.11764705882352941,
+        "wer_pythainlp_percent": 11.76470588235294,
+        "semantic_similarity": 0.9959979057312012,
+        "edit_operations": {
+            "insertions": 0,
+            "deletions": 0,
+            "substitutions": 1,
+            "hits": 0
+        },
+        "reference_length": 60,
+        "hypothesis_length": 58,
+        "pythainlp_engine": "newmm",
+        "reference_text": "บิงซูมะม่วงค่ะชอบดูตะลอนข่าวเพราะว่าข่าวเด็ดสดใหม่ให้เยอะค่ะ",
+        "hypothesis_text": "บิงซูมะม่วงคะชอบดูตะลอนข่าวเพราะว่าข่าวเด็ดสดใหม่ให้เยอะคะ",
+        "reference_tokens": [
+            "บิ",
+            "ง",
+            "ซู",
+            "มะม่วง",
+            "ค่ะ",
+            "ชอบ",
+            "ดู",
+            "ตะลอน",
+            "ข่าว",
+            "เพราะว่า",
+            "ข่าว",
+            "เด็ด",
+            "สด",
+            "ใหม่",
+            "ให้",
+            "เยอะ",
+            "ค่ะ"
+        ],
+        "hypothesis_tokens": [
+            "บิ",
+            "ง",
+            "ซู",
+            "มะม่วง",
+            "คะ",
+            "ชอบ",
+            "ดู",
+            "ตะลอน",
+            "ข่าว",
+            "เพราะว่า",
+            "ข่าว",
+            "เด็ด",
+            "สด",
+            "ใหม่",
+            "ให้",
+            "เยอะ",
+            "คะ"
+        ]
+    }
+]
