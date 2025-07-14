@@ -225,6 +225,14 @@ class OCRMetrics:
         results['reference_length'] = len(self._normalize_text(reference))
         results['hypothesis_length'] = len(self._normalize_text(hypothesis))
         results['pythainlp_engine'] = pythainlp_engine
+
+        # text normalization
+        results['reference_normalized'] = self._normalize_text(reference)
+        results['hypothesis_normalized'] = self._normalize_text(hypothesis)
+        results['reference_words'] = results['reference_normalized'].split()
+        results['hypothesis_words'] = results['hypothesis_normalized'].split()
+        results['reference_word_count'] = len(results['reference_words'])
+        results['hypothesis_word_count'] = len(results['hypothesis_words'])
         
         return results
     
