@@ -1,9 +1,9 @@
 # Makefile for EasyOCR project
 
 # Variables
-PROJECT_NAME = easyocr_test
+PROJECT_NAME = easyocr_test_v2
 REMOTE_HOST = tl
-REMOTE_PATH = /project/lt200384-ff_bio/puem/ocr_list
+REMOTE_PATH = /project/lt200384-ff_bio/puem/ocr/ocr_list
 LOCAL_PATH = ..
 
 # Default target

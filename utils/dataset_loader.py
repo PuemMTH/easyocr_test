@@ -34,6 +34,8 @@ def load_dataset(dataset: Dict, type_dataset: str) -> List[Dict[str, Any]]:
         results = _load_bbox_json_dataset(df, folder_path, dataset['name'], target_sample_size)
     elif type_dataset == 'full_image':
         results = _load_full_image_dataset(df, folder_path, dataset['name'])
+    elif type_dataset == 'lmdb_format':
+        results = _load_lmdb_format_dataset(df, folder_path, dataset['name'])
     else:
         raise ValueError(f"Unknown dataset type: {type_dataset}")
     
@@ -136,6 +138,69 @@ def _load_full_image_dataset(df: pd.DataFrame, folder_path: str, dataset_name: s
                 'box_index': 0
             })
         except Exception:
+            continue
+    
+    return results
+
+
+def _load_lmdb_format_dataset(df: pd.DataFrame, folder_path: str, dataset_name: str) -> List[Dict[str, Any]]:
+    """Load dataset in LMDB format with separate image files and CSV labels"""
+    results = []
+    
+    # Find appropriate columns - typically 'filename' and 'words' for LMDB format
+    filename_column = None
+    for col in df.columns:
+        if col.lower() in ['filename', 'file', 'image', 'name', 'path']:
+            filename_column = col
+            break
+    
+    text_column = None
+    for col in df.columns:
+        if col.lower() in ['words', 'text', 'label', 'ground_truth', 'gt']:
+            text_column = col
+            break
+    
+    if filename_column is None:
+        filename_column = df.columns[0]
+    if text_column is None:
+        text_column = df.columns[1] if len(df.columns) > 1 else df.columns[0]
+    
+    print(f"Using filename column: '{filename_column}', text column: '{text_column}'")
+    
+    # Process each row in the dataframe
+    for index, row in tqdm.tqdm(df.iterrows(), total=len(df), desc="Processing lmdb_format"):
+        filename = row[filename_column]
+        if pd.isna(filename):
+            continue
+            
+        # Try different image extensions if the filename doesn't have one
+        image_path = None
+        if not any(filename.lower().endswith(ext) for ext in ['.jpg', '.jpeg', '.png', '.bmp', '.tiff']):
+            # Try common extensions
+            for ext in ['.jpg', '.jpeg', '.png', '.bmp', '.tiff']:
+                test_path = os.path.join(folder_path, filename + ext)
+                if os.path.exists(test_path):
+                    image_path = test_path
+                    break
+        else:
+            image_path = os.path.join(folder_path, filename)
+        
+        if image_path is None or not os.path.exists(image_path):
+            print(f"Warning: Image not found for {filename}")
+            continue
+            
+        try:
+            image = Image.open(image_path)
+            ground_truth = str(row[text_column]) if pd.notna(row[text_column]) else ""
+            
+            results.append({
+                'cropped_image': image,
+                'ground_truth': ground_truth,
+                'source_file': filename,
+                'box_index': 0  # LMDB format typically has one text per image
+            })
+        except Exception as e:
+            print(f"Error processing {filename}: {e}")
             continue
     
     return results
