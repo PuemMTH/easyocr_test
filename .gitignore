@@ -10,3 +10,6 @@ wheels/
 .venv
 th_filtered_2gpus_v2/
 custom_example/
+assests/input/test/
+tmp/
+*.DS_Store
