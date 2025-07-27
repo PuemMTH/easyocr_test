@@ -8,12 +8,11 @@ from typing import Dict, Any
 
 
 class OCRMetrics:
-    def __init__(self, semantic_model: str = 'distiluse-base-multilingual-cased', local_model_path: str = None, local_files_only: bool = False):
+    def __init__(self, semantic_model: str = 'distiluse-base-multilingual-cased', local_model_path: str = None):
         """
         Initialize OCR metrics calculator
         
         Args:
-            local_files_only: Force using only local files (no internet download)
             semantic_model: SentenceTransformer model name for semantic similarity (None for offline mode)
             local_model_path: Local path to model folder (for offline mode)
         """
@@ -35,20 +34,10 @@ class OCRMetrics:
         
         # Try online model
         try:
-            if local_files_only:
-                print("🔒 Using local files only mode")
-                self.semantic_model = SentenceTransformer(semantic_model, local_files_only=True, device="cpu")
-                print(f"✅ Loaded semantic model (local files only): {semantic_model}")
-            else:
-                self.semantic_model = SentenceTransformer(semantic_model, device="cpu")
-                print(f"✅ Loaded semantic model: {semantic_model}")
+            self.semantic_model = SentenceTransformer(semantic_model)
             print(f"✅ Loaded semantic model: {semantic_model}")
         except Exception as e:
             print(f"⚠️  Could not load semantic model: {e}")
-            if local_files_only:
-                print("💡 Local files only mode failed. Try downloading model first:")
-            else:
-                print("💡 To use offline mode, download model first:")
             print("💡 To use offline mode, download model first:")
             print(f"   python -c \"from sentence_transformers import SentenceTransformer; SentenceTransformer('{semantic_model}', cache_folder='./models')\"")
     
@@ -57,7 +46,6 @@ class OCRMetrics:
         Download model to local folder for offline use
         
         Args:
-            local_files_only: Force using only local files (no internet download)
             model_name: Model name to download
             local_path: Local folder to save model
         """
@@ -76,7 +64,6 @@ class OCRMetrics:
         Normalize Unicode text and whitespace for consistent OCR evaluation
         
         Args:
-            local_files_only: Force using only local files (no internet download)
             text: Input text to normalize
             
         Returns:
@@ -105,7 +92,6 @@ class OCRMetrics:
         Calculate Character Error Rate using jiwer
         
         Args:
-            local_files_only: Force using only local files (no internet download)
             reference: Ground truth text
             hypothesis: OCR output text
             
@@ -125,7 +111,6 @@ class OCRMetrics:
         Calculate Word Error Rate using jiwer (space-separated words)
         
         Args:
-            local_files_only: Force using only local files (no internet download)
             reference: Ground truth text
             hypothesis: OCR output text
             
@@ -146,7 +131,6 @@ class OCRMetrics:
         Calculate WER using pythainlp tokenization for both reference and hypothesis
         
         Args:
-            local_files_only: Force using only local files (no internet download)
             reference: Ground truth text
             hypothesis: OCR output text
             engine: pythainlp tokenization engine ('newmm', 'longest', 'icu')
@@ -179,7 +163,6 @@ class OCRMetrics:
         Calculate semantic similarity using SentenceTransformer and cosine similarity
         
         Args:
-            local_files_only: Force using only local files (no internet download)
             reference: Ground truth text  
             hypothesis: OCR output text
             
@@ -214,7 +197,6 @@ class OCRMetrics:
         Get detailed edit operations using jiwer
         
         Args:
-            local_files_only: Force using only local files (no internet download)
             reference: Ground truth text
             hypothesis: OCR output text
             
@@ -247,7 +229,6 @@ class OCRMetrics:
         Calculate all metrics for a reference-hypothesis pair
         
         Args:
-            local_files_only: Force using only local files (no internet download)
             reference: Ground truth text
             hypothesis: OCR output text
             pythainlp_engine: Engine for pythainlp tokenization
@@ -298,7 +279,6 @@ class OCRMetrics:
         Print formatted results with detailed explanations
         
         Args:
-            local_files_only: Force using only local files (no internet download)
             results: Results dictionary from evaluate() method
         """
         print("=== OCR Evaluation Results ===")
@@ -344,7 +324,6 @@ class OCRMetrics:
         Debug tokenization differences to understand WER calculations
         
         Args:
-            local_files_only: Force using only local files (no internet download)
             reference: Ground truth text
             hypothesis: OCR output text
             engine: pythainlp tokenization engine

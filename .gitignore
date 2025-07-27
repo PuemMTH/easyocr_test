@@ -15,3 +15,5 @@ tmp/
 *.DS_Store
 report/
 reports/
+output/*.json
+monitor/*.csv

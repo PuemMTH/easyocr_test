@@ -12,6 +12,18 @@ from utils.ocr_evaluator import run_ocr_evaluation, calculate_metrics, print_sum
 
 print("Program..start")
 
+os.environ['TRANSFORMERS_OFFLINE'] = '1'
+
+# Pre-load semantic model with local path
+print("🔄 Pre-loading semantic model...")
+try:
+    from utils.ocr_evaluator import get_metrics_instance
+    # Use global metrics instance with offline support
+    _ = get_metrics_instance()
+    print("✅ OCR metrics initialized (with offline support)")
+except Exception as e:
+    print(f"⚠️  OCR metrics initialization failed: {e}")
+
 models_to_test = get_model_configurations(models=[
     {
         'name': 'base_model',
