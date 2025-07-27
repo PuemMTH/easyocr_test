@@ -59,6 +59,7 @@ training.log
 # saved_models/
 assests/th_filtered_2gpus_v2/
 assests/
+models/
 
 # Data files (ถ้าไม่ต้องการ sync)
 # Temporary files

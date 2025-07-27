@@ -24,7 +24,6 @@ def get_metrics_instance():
             try:
                 # Try with local_files_only=True first
                 _metrics_instance = OCRMetrics(local_files_only=True)
-                _metrics_instance = OCRMetrics()
             except Exception as e:
                 print(f"⚠️  Local files only failed, trying online mode: {e}")
                 try:
@@ -32,8 +31,6 @@ def get_metrics_instance():
                 except Exception as e2:
                     print(f"⚠️  Using offline mode (semantic model disabled): {e2}")
                     _metrics_instance = OCRMetrics(semantic_model=None)
-                print(f"⚠️  Using offline mode (semantic model disabled): {e}")
-                _metrics_instance = OCRMetrics(semantic_model=None)
     return _metrics_instance
 
 
@@ -57,8 +54,6 @@ def run_ocr_evaluation(models: List[Dict], dataset_results: List[Dict[str, Any]]
         
         for data_item in tqdm.tqdm(dataset_results, desc=f"OCR with {model['name']}"):
             try:
-                # Try with local_files_only=True first
-                _metrics_instance = OCRMetrics(local_files_only=True)
                 # Perform OCR on the cropped image
                 ocr_matrix = model['reader'].recognize(np.array(data_item['cropped_image']))
                 ocr_text = ocr_matrix[0][1] if ocr_matrix else "No text"
@@ -75,12 +70,6 @@ def run_ocr_evaluation(models: List[Dict], dataset_results: List[Dict[str, Any]]
                 model_results.append(result)
                 
             except Exception as e:
-                print(f"⚠️  Local files only failed, trying online mode: {e}")
-                try:
-                    _metrics_instance = OCRMetrics()
-                except Exception as e2:
-                    print(f"⚠️  Using offline mode (semantic model disabled): {e2}")
-                    _metrics_instance = OCRMetrics(semantic_model=None)
                 print(f"Error processing {data_item['source_file']}: {e}")
                 continue
                 

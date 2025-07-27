@@ -19,6 +19,7 @@ OCR Models Evaluation and Chart Generation Script
 - Semantic Similarity
 """
 
+import os
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -398,29 +399,23 @@ def main():
     setup_plotting()
     
     # 2. Load and prepare data
-    df = load_evaluation_data('output/evaluation_results.json')
+    df = load_evaluation_data('output/evaluation_results_2025-07-27_19-04-08.json')
     summary_stats = calculate_summary_stats(df)
     pivot_cer, pivot_wer, pivot_wer_pythainlp, pivot_semantic = prepare_pivot_tables(summary_stats)
-    
     # 3. Setup report directory
     report_dir, charts_dir, explanations_dir, data_dir = setup_report_directory()
-    
     # 4. Generate charts
     print("\n💾 กำลังสร้างกราฟ:")
     save_cer_percent_chart(pivot_cer, charts_dir, explanations_dir)
     save_wer_percent_chart(pivot_wer, charts_dir, explanations_dir) 
     save_wer_pythainlp_percent_chart(pivot_wer_pythainlp, charts_dir, explanations_dir)
     save_semantic_similarity_chart(pivot_semantic, charts_dir, explanations_dir)
-    
     # 5. Generate insights
     generate_insights(summary_stats)
-    
     # 6. Export results
     export_results(df, summary_stats, data_dir)
-    
     # 7. Print summary
     print_final_summary(report_dir, charts_dir, explanations_dir, data_dir)
-    
     print("\n✅ วิเคราะห์และสร้างกราฟเสร็จสิ้น! 🎉")
 
 if __name__ == "__main__":
