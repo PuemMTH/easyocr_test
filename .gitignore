@@ -13,3 +13,5 @@ custom_example/
 assests/input/test/
 tmp/
 *.DS_Store
+report/
+reports/

@@ -63,4 +63,4 @@ ssh-project:
 .PHONY: pull
 pull:
 	@echo "Pulling latest changes from remote ssh..."
-	rsync -rvz --exclude-from=.rsync-exclude $(REMOTE_HOST):$(REMOTE_PATH)/$(PROJECT_NAME) $(LOCAL_PATH)/$(PROJECT_NAME)
+	rsync -rvz --exclude-from=.rsync-exclude $(REMOTE_HOST):$(REMOTE_PATH)/$(PROJECT_NAME) $(LOCAL_PATH)
