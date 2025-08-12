@@ -66,3 +66,5 @@ models/
 *.tmp
 *.bak
 *.backup
+.cursor
+.claude
