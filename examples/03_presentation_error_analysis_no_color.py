@@ -6,6 +6,10 @@ OCR Error Analysis Presentation (No Color Version)
 import pandas as pd
 import ast
 from collections import Counter
+from rich.console import Console
+from rich.table import Table
+
+console = Console(no_color=False)
 
 def load_evaluation_data(csv_path):
     """Load OCR evaluation data from CSV file"""
@@ -42,118 +46,300 @@ def analyze_word_errors(reference_words, hypothesis_words):
         'insertions': list(insertions)
     }
 
-def present_error_analysis(csv_path='reports/ocr_evaluation_20250727_235535/data/ocr_evaluation_detailed.csv'):
-    """Present error analysis for presentation (no color)"""
+def present_error_analysis(csv_path='reports/ocr_evaluation_20250727_235535/data/ocr_evaluation_detailed.csv', export_csv=None):
+    """Present error analysis in a single colored table with CSV export"""
     df = load_evaluation_data(csv_path)
 
-    print("="*100)
-    print("OCR ERROR ANALYSIS - PRESENTATION")
-    print("="*100)
+    console.rule("OCR ERROR ANALYSIS - WORST CASES")
+
+    # Create a single table with all worst cases
+    table = Table(show_header=True, header_style="bold magenta")
+    table.add_column("Model", style="cyan", no_wrap=True)
+    table.add_column("Dataset", style="bright_cyan")
+    table.add_column("Rank", justify="center", style="yellow")
+    table.add_column("CER %", justify="right", style="white")
+    table.add_column("Reference Text", style="dim white", max_width=40)
+    table.add_column("Hypothesis Text", style="dim white", max_width=40)
+
+    # For CSV export
+    export_data = []
 
     # Analyze worst cases for each model-dataset combination
-    for model in df['model_name'].unique():
-        for dataset in df['dataset_name'].unique():
-            print(f"\nModel: {model}")
-            print(f"Dataset: {dataset}")
-
+    for model in sorted(df['model_name'].unique()):
+        for dataset in sorted(df['dataset_name'].unique()):
             subset = df.query("model_name == @model and dataset_name == @dataset")
 
             if subset.empty:
-                print("\tNo data for this combination.")
                 continue
 
             # Show worst cases
             worst_cases = subset.nlargest(3, 'cer')
-            print(f"\nTop 3 Worst Cases:")
 
-            for idx, row in worst_cases.iterrows():
-                reference_words = ast.literal_eval(row['reference_words'])
-                hypothesis_words = ast.literal_eval(row['hypothesis_words'])
+            for rank, (idx, row) in enumerate(worst_cases.iterrows(), 1):
+                reference_words = ' '.join(ast.literal_eval(row['reference_words']))
+                hypothesis_words = ' '.join(ast.literal_eval(row['hypothesis_words']))
                 cer = row['cer']
 
-                print(f"\n" + "="*60)
-                print(f"Case #{idx} - CER: {cer*100:.2f}%")
-                print("="*60)
+                # Truncate long text for table display
+                ref_display = reference_words[:37] + "..." if len(reference_words) > 40 else reference_words
+                hyp_display = hypothesis_words[:37] + "..." if len(hypothesis_words) > 40 else hypothesis_words
 
-                # Print reference and hypothesis
-                print(f"Reference: {' '.join(reference_words)}")
-                print(f"Hypothesis: {' '.join(hypothesis_words)}")
+                # Color CER based on severity
+                if cer >= 0.8:
+                    cer_color = "bright_red"
+                elif cer >= 0.5:
+                    cer_color = "red"
+                elif cer >= 0.3:
+                    cer_color = "yellow"
+                else:
+                    cer_color = "green"
 
-                # Character-level error analysis
-                char_errors = analyze_character_errors(reference_words, hypothesis_words)
-                if char_errors:
-                    print(f"\nCharacter-level Errors:")
-                    for error in char_errors[:10]:  # Show first 10 errors
-                        print(f"\tPosition {error['position']}: '{error['reference']}' -> '{error['hypothesis']}'")
-                    if len(char_errors) > 10:
-                        print(f"\t... and {len(char_errors) - 10} more errors")
+                # Color rank
+                rank_color = "bright_red" if rank == 1 else "red" if rank == 2 else "yellow"
 
-                # Word-level error analysis
-                word_errors = analyze_word_errors(reference_words, hypothesis_words)
-                if word_errors['deletions'] or word_errors['insertions']:
-                    print(f"\nWord-level Errors:")
-                    if word_errors['deletions']:
-                        print(f"\tDeletions: {', '.join(word_errors['deletions'])}")
-                    if word_errors['insertions']:
-                        print(f"\tInsertions: {', '.join(word_errors['insertions'])}")
+                table.add_row(
+                    model,
+                    dataset,
+                    f"[{rank_color}]#{rank}[/{rank_color}]",
+                    f"[{cer_color}]{cer*100:.1f}[/{cer_color}]",
+                    ref_display,
+                    hyp_display
+                )
+
+                # Collect data for CSV export
+                if export_csv:
+                    export_data.append({
+                        'model': model,
+                        'dataset': dataset,
+                        'rank': rank,
+                        'cer_percent': f"{cer*100:.1f}",
+                        'reference_text': reference_words,
+                        'hypothesis_text': hypothesis_words,
+                        'source_file': row['source_file'],
+                        'box_index': row['box_index']
+                    })
+
+    console.print(table)
+
+    # Export to CSV if requested
+    if export_csv and export_data:
+        export_df = pd.DataFrame(export_data)
+        export_df.to_csv(export_csv, index=False, encoding='utf-8-sig')
+        console.print(f"\n📄 Worst cases exported to: {export_csv}")
+        console.print(f"🎯 Total examples exported: {len(export_data)}")
 
 def find_common_error_patterns(df, top_n=5):
-    """Find common error patterns across the dataset"""
-    all_char_errors = []
-    all_word_deletions = []
-    all_word_insertions = []
+    """Find common error patterns for each model-dataset combination"""
+    results = {}
+    
+    for model in df['model_name'].unique():
+        for dataset in df['dataset_name'].unique():
+            subset = df.query("model_name == @model and dataset_name == @dataset")
+            
+            if subset.empty:
+                continue
+                
+            all_char_errors = []
+            all_word_deletions = []
+            all_word_insertions = []
 
-    for _, row in df.iterrows():
-        reference_words = ast.literal_eval(row['reference_words'])
-        hypothesis_words = ast.literal_eval(row['hypothesis_words'])
+            for _, row in subset.iterrows():
+                reference_words = ast.literal_eval(row['reference_words'])
+                hypothesis_words = ast.literal_eval(row['hypothesis_words'])
 
-        # Collect character errors
-        char_errors = analyze_character_errors(reference_words, hypothesis_words)
-        for error in char_errors:
-            all_char_errors.append(f"{error['reference']}->{error['hypothesis']}")
+                # Collect character errors
+                char_errors = analyze_character_errors(reference_words, hypothesis_words)
+                for error in char_errors:
+                    all_char_errors.append(f"{error['reference']}->{error['hypothesis']}")
 
-        # Collect word errors
-        word_errors = analyze_word_errors(reference_words, hypothesis_words)
-        all_word_deletions.extend(word_errors['deletions'])
-        all_word_insertions.extend(word_errors['insertions'])
+                # Collect word errors
+                word_errors = analyze_word_errors(reference_words, hypothesis_words)
+                all_word_deletions.extend(word_errors['deletions'])
+                all_word_insertions.extend(word_errors['insertions'])
 
-    # Count patterns
-    char_error_counts = Counter(all_char_errors)
-    deletion_counts = Counter(all_word_deletions)
-    insertion_counts = Counter(all_word_insertions)
+            # Count patterns
+            char_error_counts = Counter(all_char_errors)
+            deletion_counts = Counter(all_word_deletions)
+            insertion_counts = Counter(all_word_insertions)
 
-    return {
-        'char_errors': char_error_counts.most_common(top_n),
-        'deletions': deletion_counts.most_common(top_n),
-        'insertions': insertion_counts.most_common(top_n)
-    }
+            results[f"{model}_{dataset}"] = {
+                'model': model,
+                'dataset': dataset,
+                'char_errors': char_error_counts.most_common(top_n),
+                'deletions': deletion_counts.most_common(top_n),
+                'insertions': insertion_counts.most_common(top_n)
+            }
+    
+    return results
 
-def present_error_patterns(csv_path='reports/ocr_evaluation_20250727_235535/data/ocr_evaluation_detailed.csv'):
-    """Present common error patterns for presentation (no color)"""
+def present_error_patterns(csv_path='reports/ocr_evaluation_20250727_235535/data/ocr_evaluation_detailed.csv', export_csv=None):
+    """Present common error patterns by model-dataset in a single colored table with CSV export"""
     df = load_evaluation_data(csv_path)
-    patterns = find_common_error_patterns(df)
+    patterns_by_combo = find_common_error_patterns(df)
 
-    print(f"\n" + "="*100)
-    print("COMMON ERROR PATTERNS ANALYSIS")
-    print("="*100)
+    console.rule("COMMON ERROR PATTERNS BY MODEL-DATASET")
 
-    print(f"\nMost Common Character Errors:")
-    for error, count in patterns['char_errors']:
-        print(f"\t{error}: {count} times")
+    # Create a single consolidated table with all error patterns
+    table = Table(show_header=True, header_style="bold magenta")
+    table.add_column("Model", style="cyan", no_wrap=True)
+    table.add_column("Dataset", style="bright_cyan")
+    table.add_column("Error Type", style="yellow", no_wrap=True)
+    table.add_column("Pattern/Word", style="white")
+    table.add_column("Count", justify="right", style="white")
+    table.add_column("Frequency", justify="right", style="white")
 
-    print(f"\nMost Common Word Deletions:")
-    for word, count in patterns['deletions']:
-        print(f"\t'{word}': {count} times")
+    # For CSV export
+    export_data = []
 
-    print(f"\nMost Common Word Insertions:")
-    for word, count in patterns['insertions']:
-        print(f"\t'{word}': {count} times")
+    for combo_key, patterns in patterns_by_combo.items():
+        model = patterns['model']
+        dataset = patterns['dataset']
+        
+        # Calculate totals for frequency percentages
+        total_char_errors = sum(count for _, count in patterns['char_errors'])
+        total_deletions = sum(count for _, count in patterns['deletions'])
+        total_insertions = sum(count for _, count in patterns['insertions'])
 
-def analyze_error_distribution(df):
-    """Analyze error distribution across different CER ranges"""
-    print(f"\n" + "="*80)
-    print("ERROR DISTRIBUTION ANALYSIS")
-    print("="*80)
+        # Add character errors
+        for pattern, count in patterns['char_errors']:
+            frequency = (count / total_char_errors * 100) if total_char_errors > 0 else 0
+            
+            # Color based on frequency
+            if frequency >= 30:
+                freq_color = "bright_red"
+            elif frequency >= 20:
+                freq_color = "red"
+            elif frequency >= 10:
+                freq_color = "yellow"
+            else:
+                freq_color = "green"
+
+            table.add_row(
+                model,
+                dataset,
+                "[red]Character Error[/red]",
+                f"[white]{pattern}[/white]",
+                f"{count:,}",
+                f"[{freq_color}]{frequency:.1f}%[/{freq_color}]"
+            )
+
+            if export_csv:
+                export_data.append({
+                    'model': model,
+                    'dataset': dataset,
+                    'error_type': 'Character Error',
+                    'pattern_word': pattern,
+                    'count': count,
+                    'frequency_percent': f"{frequency:.1f}",
+                    'total_in_category': total_char_errors
+                })
+
+        # Add word deletions
+        for word, count in patterns['deletions']:
+            frequency = (count / total_deletions * 100) if total_deletions > 0 else 0
+            
+            # Color based on frequency
+            if frequency >= 30:
+                freq_color = "bright_red"
+            elif frequency >= 20:
+                freq_color = "red"
+            elif frequency >= 10:
+                freq_color = "yellow"
+            else:
+                freq_color = "green"
+
+            table.add_row(
+                model,
+                dataset,
+                "[yellow]Word Deletion[/yellow]",
+                f"[white]{word}[/white]",
+                f"{count:,}",
+                f"[{freq_color}]{frequency:.1f}%[/{freq_color}]"
+            )
+
+            if export_csv:
+                export_data.append({
+                    'model': model,
+                    'dataset': dataset,
+                    'error_type': 'Word Deletion',
+                    'pattern_word': word,
+                    'count': count,
+                    'frequency_percent': f"{frequency:.1f}",
+                    'total_in_category': total_deletions
+                })
+
+        # Add word insertions
+        for word, count in patterns['insertions']:
+            frequency = (count / total_insertions * 100) if total_insertions > 0 else 0
+            
+            # Color based on frequency
+            if frequency >= 30:
+                freq_color = "bright_red"
+            elif frequency >= 20:
+                freq_color = "red"
+            elif frequency >= 10:
+                freq_color = "yellow"
+            else:
+                freq_color = "green"
+
+            table.add_row(
+                model,
+                dataset,
+                "[blue]Word Insertion[/blue]",
+                f"[white]{word}[/white]",
+                f"{count:,}",
+                f"[{freq_color}]{frequency:.1f}%[/{freq_color}]"
+            )
+
+            if export_csv:
+                export_data.append({
+                    'model': model,
+                    'dataset': dataset,
+                    'error_type': 'Word Insertion',
+                    'pattern_word': word,
+                    'count': count,
+                    'frequency_percent': f"{frequency:.1f}",
+                    'total_in_category': total_insertions
+                })
+
+    console.print(table)
+
+    # Export to CSV if requested
+    if export_csv and export_data:
+        export_df = pd.DataFrame(export_data)
+        export_df.to_csv(export_csv, index=False, encoding='utf-8-sig')
+        console.print(f"\n📄 Error patterns exported to: {export_csv}")
+        console.print(f"🎯 Total patterns exported: {len(export_data)}")
+
+def get_range_color(cer_range):
+    """Get color style based on CER range"""
+    if "Excellent" in cer_range:
+        return "bright_green"
+    elif "Good" in cer_range:
+        return "green"
+    elif "Fair" in cer_range:
+        return "yellow"
+    elif "Poor" in cer_range and "Very" not in cer_range:
+        return "red"
+    else:  # Very Poor
+        return "bright_red"
+
+def get_percentage_color(percentage):
+    """Get color style based on percentage"""
+    if percentage >= 50:
+        return "bright_red"
+    elif percentage >= 30:
+        return "red"
+    elif percentage >= 15:
+        return "yellow"
+    elif percentage >= 5:
+        return "green"
+    else:
+        return "bright_green"
+
+def analyze_error_distribution(df, export_csv=None):
+    """Analyze error distribution across different CER ranges in a single colored table"""
+    console.rule("ERROR DISTRIBUTION ANALYSIS")
 
     # Define CER ranges
     ranges = [
@@ -164,23 +350,76 @@ def analyze_error_distribution(df):
         (0.5, 1.0, "Very Poor (50-100%)")
     ]
 
-    for model in df['model_name'].unique():
-        for dataset in df['dataset_name'].unique():
+    # Create a single table with all results
+    table = Table(show_header=True, header_style="bold magenta")
+    table.add_column("Model", style="cyan", no_wrap=True)
+    table.add_column("Dataset", style="bright_cyan")
+    table.add_column("CER Range", style="white")
+    table.add_column("Count", justify="right", style="white")
+    table.add_column("Percentage", justify="right", style="white")
+    table.add_column("Total Samples", justify="right", style="dim white")
+
+    # For CSV export
+    export_data = []
+
+    for model in sorted(df['model_name'].unique()):
+        for dataset in sorted(df['dataset_name'].unique()):
             subset = df.query("model_name == @model and dataset_name == @dataset")
 
             if subset.empty:
                 continue
 
-            print(f"\nModel: {model}")
-            print(f"Dataset: {dataset}")
-            print(f"Total Samples: {len(subset)}")
+            total_samples = len(subset)
 
             for min_cer, max_cer, label in ranges:
-                count = len(subset[(subset['cer'] >= min_cer) & (subset['cer'] < max_cer)])
-                percentage = (count / len(subset)) * 100
+                range_subset = subset[(subset['cer'] >= min_cer) & (subset['cer'] < max_cer)]
+                count = len(range_subset)
+                percentage = (count / total_samples) * 100
 
-                if percentage > 0:
-                    print(f"\t{label}: {count} samples ({percentage:.1f}%)")
+                if count > 0:  # Only show ranges that have data
+                    # Get colors for dynamic styling
+                    range_color = get_range_color(label)
+                    percentage_color = get_percentage_color(percentage)
+
+                    table.add_row(
+                        model,
+                        dataset,
+                        f"[{range_color}]{label}[/{range_color}]",
+                        f"{count:,}",
+                        f"[{percentage_color}]{percentage:.1f}%[/{percentage_color}]",
+                        f"{total_samples:,}"
+                    )
+
+                # Collect data for CSV export
+                if export_csv and count > 0:
+                    # Add sample examples from this range
+                    for _, row in range_subset.head(5).iterrows():  # Top 5 examples per range
+                        reference_words = ' '.join(ast.literal_eval(row['reference_words']))
+                        hypothesis_words = ' '.join(ast.literal_eval(row['hypothesis_words']))
+                        
+                        export_data.append({
+                            'model': model,
+                            'dataset': dataset,
+                            'cer_range': label,
+                            'cer_min': min_cer,
+                            'cer_max': max_cer,
+                            'cer_percent': f"{row['cer']*100:.1f}",
+                            'range_count': count,
+                            'range_percentage': f"{percentage:.1f}",
+                            'reference_text': reference_words,
+                            'hypothesis_text': hypothesis_words,
+                            'source_file': row['source_file'],
+                            'box_index': row['box_index']
+                        })
+
+    console.print(table)
+
+    # Export to CSV if requested
+    if export_csv and export_data:
+        export_df = pd.DataFrame(export_data)
+        export_df.to_csv(export_csv, index=False, encoding='utf-8-sig')
+        console.print(f"\n📄 Error distribution exported to: {export_csv}")
+        console.print(f"🎯 Total examples exported: {len(export_data)}")
 
 if __name__ == "__main__":
     present_error_analysis()

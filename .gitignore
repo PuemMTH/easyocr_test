@@ -21,3 +21,5 @@ models/
 .cursor
 .claude
 output/saved_models/
+clone_images/
+output/

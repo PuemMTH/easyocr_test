@@ -4,7 +4,11 @@ OCR Comprehensive Summary Presentation (No Color Version)
 """
 
 import pandas as pd
-import numpy as np
+from rich.console import Console
+from rich.panel import Panel
+from rich.table import Table
+
+console = Console(no_color=True)
 
 def load_evaluation_data(csv_path):
     """Load OCR evaluation data from CSV file"""
@@ -72,9 +76,7 @@ def present_executive_summary(csv_path='reports/ocr_evaluation_20250727_235535/d
     df = load_evaluation_data(csv_path)
     summary_df = calculate_comprehensive_metrics(df)
 
-    print("="*120)
-    print("OCR EVALUATION - EXECUTIVE SUMMARY")
-    print("="*120)
+    console.rule("OCR EVALUATION - EXECUTIVE SUMMARY")
 
     # Overall statistics
     total_evaluations = len(df)
@@ -82,120 +84,139 @@ def present_executive_summary(csv_path='reports/ocr_evaluation_20250727_235535/d
     models_count = df['model_name'].nunique()
     datasets_count = df['dataset_name'].nunique()
 
-    print(f"\nOVERALL EVALUATION STATISTICS:")
-    print(f"\tTotal Evaluations: {total_evaluations:,}")
-    print(f"\tModels Evaluated: {models_count}")
-    print(f"\tDatasets Used: {datasets_count}")
-    print(f"\tOverall Mean CER: {overall_mean_cer*100:.2f}%")
+    overall_table = Table(show_header=False, box=None)
+    overall_table.add_column("Field", style="bold")
+    overall_table.add_column("Value")
+    overall_table.add_row("Total Evaluations", f"{total_evaluations:,}")
+    overall_table.add_row("Models Evaluated", str(models_count))
+    overall_table.add_row("Datasets Used", str(datasets_count))
+    overall_table.add_row("Overall Mean CER", f"{overall_mean_cer*100:.2f}%")
+    console.print(Panel(overall_table, title="OVERALL EVALUATION STATISTICS", expand=False))
 
     # Best and worst performers
     best_performance = summary_df.loc[summary_df['mean_cer'].idxmin()]
     worst_performance = summary_df.loc[summary_df['mean_cer'].idxmax()]
 
-    print(f"\nBEST PERFORMANCE:")
-    print(f"\tModel: {best_performance['model_name']}")
-    print(f"\tDataset: {best_performance['dataset_name']}")
-    print(f"\tMean CER: {best_performance['mean_cer']*100:.2f}%")
-    print(f"\tRating: {best_performance['rating']}")
+    best_table = Table(show_header=False, box=None)
+    best_table.add_column("Field", style="bold")
+    best_table.add_column("Value")
+    best_table.add_row("Model", best_performance['model_name'])
+    best_table.add_row("Dataset", best_performance['dataset_name'])
+    best_table.add_row("Mean CER", f"{best_performance['mean_cer']*100:.2f}%")
+    best_table.add_row("Rating", best_performance['rating'])
+    console.print(Panel(best_table, title="BEST PERFORMANCE", expand=False))
 
-    print(f"\nWORST PERFORMANCE:")
-    print(f"\tModel: {worst_performance['model_name']}")
-    print(f"\tDataset: {worst_performance['dataset_name']}")
-    print(f"\tMean CER: {worst_performance['mean_cer']*100:.2f}%")
-    print(f"\tRating: {worst_performance['rating']}")
+    worst_table = Table(show_header=False, box=None)
+    worst_table.add_column("Field", style="bold")
+    worst_table.add_column("Value")
+    worst_table.add_row("Model", worst_performance['model_name'])
+    worst_table.add_row("Dataset", worst_performance['dataset_name'])
+    worst_table.add_row("Mean CER", f"{worst_performance['mean_cer']*100:.2f}%")
+    worst_table.add_row("Rating", worst_performance['rating'])
+    console.print(Panel(worst_table, title="WORST PERFORMANCE", expand=False))
 
 def present_detailed_summary(csv_path='reports/ocr_evaluation_20250727_235535/data/ocr_evaluation_detailed.csv'):
     """Present detailed summary for presentation (no color)"""
     df = load_evaluation_data(csv_path)
     summary_df = calculate_comprehensive_metrics(df)
 
-    print(f"\n" + "="*120)
-    print("DETAILED PERFORMANCE SUMMARY")
-    print("="*120)
+    console.print("")
+    console.rule("DETAILED PERFORMANCE SUMMARY")
 
     for _, row in summary_df.iterrows():
-        print(f"\nModel: {row['model_name']}")
-        print(f"Dataset: {row['dataset_name']}")
-        print(f"Total Samples: {row['total_samples']}")
+        console.print("")
+        header = Table(box=None)
+        header.add_column("Field", style="bold")
+        header.add_column("Value")
+        header.add_row("Model", row['model_name'])
+        header.add_row("Dataset", row['dataset_name'])
+        header.add_row("Total Samples", str(row['total_samples']))
+        console.print(Panel(header, title="Overview", expand=False))
 
-        # CER Statistics
-        print(f"\nCER Statistics:")
-        print(f"\tMean CER: {row['mean_cer']*100:.2f}%")
-        print(f"\tStd CER: {row['std_cer']*100:.2f}%")
-        print(f"\tMin CER: {row['min_cer']*100:.2f}%")
-        print(f"\tMax CER: {row['max_cer']*100:.2f}%")
-        print(f"\tMedian CER: {row['median_cer']*100:.2f}%")
+        stats = Table(box=None)
+        stats.add_column("CER Metric", style="bold")
+        stats.add_column("Value")
+        stats.add_row("Mean", f"{row['mean_cer']*100:.2f}%")
+        stats.add_row("Std", f"{row['std_cer']*100:.2f}%")
+        stats.add_row("Min", f"{row['min_cer']*100:.2f}%")
+        stats.add_row("Max", f"{row['max_cer']*100:.2f}%")
+        stats.add_row("Median", f"{row['median_cer']*100:.2f}%")
+        console.print(Panel(stats, title="CER Statistics", expand=False))
 
-        # Accuracy Distribution
-        print(f"\nAccuracy Distribution:")
-        print(f"\tPerfect Matches (CER=0%): {row['perfect_matches']} ({row['perfect_matches_pct']:.1f}%)")
-        print(f"\tHigh Accuracy (CER<10%): {row['high_accuracy']} ({row['high_accuracy_pct']:.1f}%)")
-        print(f"\tMedium Accuracy (10%≤CER<50%): {row['medium_accuracy']} ({row['medium_accuracy_pct']:.1f}%)")
-        print(f"\tLow Accuracy (CER≥50%): {row['low_accuracy']} ({row['low_accuracy_pct']:.1f}%)")
+        acc = Table(box=None)
+        acc.add_column("Accuracy Bucket", style="bold")
+        acc.add_column("Count")
+        acc.add_column("Percent")
+        acc.add_row("Perfect (0%)", str(row['perfect_matches']), f"{row['perfect_matches_pct']:.1f}%")
+        acc.add_row("High (<10%)", str(row['high_accuracy']), f"{row['high_accuracy_pct']:.1f}%")
+        acc.add_row("Medium (10-50%)", str(row['medium_accuracy']), f"{row['medium_accuracy_pct']:.1f}%")
+        acc.add_row("Low (>=50%)", str(row['low_accuracy']), f"{row['low_accuracy_pct']:.1f}%")
+        console.print(Panel(acc, title="Accuracy Distribution", expand=False))
 
-        # Performance Rating
-        print(f"\nOverall Performance Rating: {row['rating']}")
+        console.print(f"\nOverall Performance Rating: {row['rating']}")
 
 def present_recommendations(csv_path='reports/ocr_evaluation_20250727_235535/data/ocr_evaluation_detailed.csv'):
     """Present recommendations based on evaluation results (no color)"""
     df = load_evaluation_data(csv_path)
     summary_df = calculate_comprehensive_metrics(df)
 
-    print(f"\n" + "="*120)
-    print("RECOMMENDATIONS BASED ON EVALUATION RESULTS")
-    print("="*120)
+    console.print("")
+    console.rule("RECOMMENDATIONS BASED ON EVALUATION RESULTS")
 
     # Find best models for each dataset
     for dataset in summary_df['dataset_name'].unique():
         dataset_summary = summary_df[summary_df['dataset_name'] == dataset]
         best_model = dataset_summary.loc[dataset_summary['mean_cer'].idxmin()]
 
-        print(f"\nDataset: {dataset}")
-        print(f"Recommended Model: {best_model['model_name']}")
-        print(f"Performance: {best_model['mean_cer']*100:.2f}% CER")
-        print(f"Rating: {best_model['rating']}")
+        tbl = Table(box=None)
+        tbl.add_column("Field", style="bold")
+        tbl.add_column("Value")
+        tbl.add_row("Dataset", dataset)
+        tbl.add_row("Recommended Model", best_model['model_name'])
+        tbl.add_row("Performance", f"{best_model['mean_cer']*100:.2f}% CER")
+        tbl.add_row("Rating", best_model['rating'])
+        console.print(Panel(tbl, title="Dataset Recommendation", expand=False))
 
     # Overall recommendations
-    print(f"\nOVERALL RECOMMENDATIONS:")
+    console.print("\nOVERALL RECOMMENDATIONS:")
 
     excellent_models = summary_df[summary_df['rating'] == 'EXCELLENT']
     if not excellent_models.empty:
-        print(f"\tExcellent performing models found:")
+        console.print("\tExcellent performing models found:")
         for _, model in excellent_models.iterrows():
-            print(f"\t\t- {model['model_name']} on {model['dataset_name']} ({model['mean_cer']*100:.2f}% CER)")
+            console.print(f"\t\t- {model['model_name']} on {model['dataset_name']} ({model['mean_cer']*100:.2f}% CER)")
 
     poor_models = summary_df[summary_df['rating'] == 'POOR']
     if not poor_models.empty:
-        print(f"\tModels needing improvement:")
+        console.print("\tModels needing improvement:")
         for _, model in poor_models.iterrows():
-            print(f"\t\t- {model['model_name']} on {model['dataset_name']} ({model['mean_cer']*100:.2f}% CER)")
+            console.print(f"\t\t- {model['model_name']} on {model['dataset_name']} ({model['mean_cer']*100:.2f}% CER)")
 
 def present_key_insights(csv_path='reports/ocr_evaluation_20250727_235535/data/ocr_evaluation_detailed.csv'):
     """Present key insights from the evaluation (no color)"""
     df = load_evaluation_data(csv_path)
     summary_df = calculate_comprehensive_metrics(df)
 
-    print(f"\n" + "="*120)
-    print("KEY INSIGHTS FROM OCR EVALUATION")
-    print("="*120)
+    console.print("")
+    console.rule("KEY INSIGHTS FROM OCR EVALUATION")
 
     # Performance distribution
     rating_counts = summary_df['rating'].value_counts()
-    print(f"\nPerformance Distribution:")
+    console.print("\nPerformance Distribution:")
     for rating, count in rating_counts.items():
-        print(f"\t{rating}: {count} model-dataset combinations")
+        console.print(f"\t{rating}: {count} model-dataset combinations")
 
     # Dataset performance comparison
     dataset_performance = summary_df.groupby('dataset_name')['mean_cer'].mean()
-    print(f"\nDataset Performance Comparison:")
+    console.print("\nDataset Performance Comparison:")
     for dataset, mean_cer in dataset_performance.items():
-        print(f"\t{dataset}: {mean_cer*100:.2f}% average CER")
+        console.print(f"\t{dataset}: {mean_cer*100:.2f}% average CER")
 
     # Model performance comparison
     model_performance = summary_df.groupby('model_name')['mean_cer'].mean()
-    print(f"\nModel Performance Comparison:")
+    console.print("\nModel Performance Comparison:")
     for model, mean_cer in model_performance.items():
-        print(f"\t{model}: {mean_cer*100:.2f}% average CER")
+        console.print(f"\t{model}: {mean_cer*100:.2f}% average CER")
 
 if __name__ == "__main__":
     present_executive_summary()

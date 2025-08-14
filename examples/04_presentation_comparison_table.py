@@ -4,8 +4,13 @@ OCR Comparison Table Presentation
 """
 
 import pandas as pd
-from colorama import Fore, Style
-import numpy as np
+from rich.console import Console
+from rich.table import Table
+from rich.panel import Panel
+from rich.text import Text
+import numpy as np  # noqa: F401 (may be useful later)
+
+console = Console()  # allow rich styling
 
 def load_evaluation_data(csv_path):
     """Load OCR evaluation data from CSV file"""
@@ -13,8 +18,7 @@ def load_evaluation_data(csv_path):
 
 def create_comparison_table(df):
     """Create a comprehensive comparison table for all model-dataset combinations"""
-    models = df['model_name'].unique()
-    datasets = df['dataset_name'].unique()
+    # derive pivot and stats
     
     # Create pivot table for mean CER
     comparison_df = df.pivot_table(
@@ -35,76 +39,73 @@ def present_comparison_table(csv_path='reports/ocr_evaluation_20250727_235535/da
     """Present comparison table for presentation"""
     df = load_evaluation_data(csv_path)
     comparison_df, stats_df = create_comparison_table(df)
-    
-    print(f"{Fore.CYAN}{'='*120}{Style.RESET_ALL}")
-    print(f"{Fore.CYAN}OCR MODEL COMPARISON TABLE - PRESENTATION{Style.RESET_ALL}")
-    print(f"{Fore.CYAN}{'='*120}{Style.RESET_ALL}")
-    
-    # Print comparison matrix
-    print(f"\n{Fore.YELLOW}Mean CER Comparison Matrix (%):{Style.RESET_ALL}")
-    print("-" * 120)
-    
-    # Print header
-    header = f"{'Model':<40}"
+
+    console.rule("OCR MODEL COMPARISON TABLE - PRESENTATION")
+
+    table = Table(title="Mean CER Comparison Matrix (%)", show_lines=False)
+    table.add_column("Model", style="bold red")
     for dataset in comparison_df.columns:
-        header += f"{dataset:<20}"
-    print(header)
-    print("-" * 120)
-    
-    # Print each model row
+        table.add_column(str(dataset))
+
     for model in comparison_df.index:
-        row = f"{Fore.RED}{model:<40}{Style.RESET_ALL}"
+        cells = [Text(model, style="bold red")]
         for dataset in comparison_df.columns:
             cer = comparison_df.loc[model, dataset]
             if pd.isna(cer):
-                row += f"{'N/A':<20}"
+                cells.append("N/A")
             else:
                 if cer < 0.1:
-                    color = Fore.GREEN
+                    style = "green"
                 elif cer < 0.2:
-                    color = Fore.YELLOW
+                    style = "yellow"
                 elif cer < 0.3:
-                    color = Fore.CYAN
+                    style = "cyan"
                 else:
-                    color = Fore.RED
-                row += f"{color}{cer*100:.2f}%{Style.RESET_ALL:<20}"
-        print(row)
+                    style = "red"
+                cells.append(Text(f"{cer*100:.2f}%", style=style))
+        table.add_row(*cells)
+    console.print(table)
 
 def present_detailed_statistics(csv_path='reports/ocr_evaluation_20250727_235535/data/ocr_evaluation_detailed.csv'):
     """Present detailed statistics for presentation"""
     df = load_evaluation_data(csv_path)
     _, stats_df = create_comparison_table(df)
-    
-    print(f"\n{Fore.CYAN}{'='*140}{Style.RESET_ALL}")
-    print(f"{Fore.CYAN}DETAILED STATISTICS - PRESENTATION{Style.RESET_ALL}")
-    print(f"{Fore.CYAN}{'='*140}{Style.RESET_ALL}")
-    
+
+    console.print("")
+    console.rule("DETAILED STATISTICS - PRESENTATION")
+
     for (model, dataset), stats in stats_df.iterrows():
-        print(f"\n{Fore.RED}Model: {model}{Style.RESET_ALL}")
-        print(f"{Fore.BLUE}Dataset: {dataset}{Style.RESET_ALL}")
-        print(f"{Fore.YELLOW}Sample Count: {stats[('cer', 'count')]}{Style.RESET_ALL}")
-        
         mean_cer = stats[('cer', 'mean')]
         std_cer = stats[('cer', 'std')]
         min_cer = stats[('cer', 'min')]
         max_cer = stats[('cer', 'max')]
-        
-        print(f"{Fore.GREEN}Mean CER: {mean_cer*100:.2f}%{Style.RESET_ALL}")
-        print(f"{Fore.CYAN}Std CER: {std_cer*100:.2f}%{Style.RESET_ALL}")
-        print(f"{Fore.YELLOW}Min CER: {min_cer*100:.2f}%{Style.RESET_ALL}")
-        print(f"{Fore.RED}Max CER: {max_cer*100:.2f}%{Style.RESET_ALL}")
-        
-        # Performance rating
+
+        info = Table(box=None)
+        info.add_column("Field", style="bold")
+        info.add_column("Value")
+        info.add_row("Model", model)
+        info.add_row("Dataset", str(dataset))
+        info.add_row("Sample Count", str(stats[('cer', 'count')]))
+        info.add_row("Mean CER", f"{mean_cer*100:.2f}%")
+        info.add_row("Std CER", f"{std_cer*100:.2f}%")
+        info.add_row("Min CER", f"{min_cer*100:.2f}%")
+        info.add_row("Max CER", f"{max_cer*100:.2f}%")
+
         if mean_cer < 0.1:
-            rating = f"{Fore.GREEN}EXCELLENT{Style.RESET_ALL}"
+            rating_style = "green"
+            rating_text = "EXCELLENT"
         elif mean_cer < 0.2:
-            rating = f"{Fore.YELLOW}GOOD{Style.RESET_ALL}"
+            rating_style = "yellow"
+            rating_text = "GOOD"
         elif mean_cer < 0.3:
-            rating = f"{Fore.CYAN}FAIR{Style.RESET_ALL}"
+            rating_style = "cyan"
+            rating_text = "FAIR"
         else:
-            rating = f"{Fore.RED}POOR{Style.RESET_ALL}"
-        
-        print(f"{Fore.MAGENTA}Performance Rating: {rating}{Style.RESET_ALL}")
+            rating_style = "red"
+            rating_text = "POOR"
+
+        console.print(Panel(info, title="Statistics", expand=False))
+        console.print(Text(f"Performance Rating: {rating_text}", style=rating_style))
 
 def create_ranking_table(df):
     """Create a ranking table for all model-dataset combinations"""
@@ -129,70 +130,74 @@ def present_ranking_table(csv_path='reports/ocr_evaluation_20250727_235535/data/
     """Present ranking table for presentation"""
     df = load_evaluation_data(csv_path)
     ranking_df = create_ranking_table(df)
-    
-    print(f"\n{Fore.CYAN}{'='*100}{Style.RESET_ALL}")
-    print(f"{Fore.CYAN}MODEL RANKINGS BY DATASET - PRESENTATION{Style.RESET_ALL}")
-    print(f"{Fore.CYAN}{'='*100}{Style.RESET_ALL}")
-    
+
+    console.print("")
+    console.rule("MODEL RANKINGS BY DATASET - PRESENTATION")
+
     for dataset in ranking_df['dataset'].unique():
         dataset_rankings = ranking_df[ranking_df['dataset'] == dataset].sort_values('rank')
-        
-        print(f"\n{Fore.BLUE}Dataset: {dataset}{Style.RESET_ALL}")
-        print(f"{'Rank':<8} {'Model':<50} {'CER':<12} {'Performance':<15}")
-        print("-" * 85)
-        
+
+        table = Table(title=f"Dataset: {dataset}")
+        table.add_column("Rank", justify="right")
+        table.add_column("Model")
+        table.add_column("CER", justify="right")
+        table.add_column("Performance")
+
         for _, row in dataset_rankings.iterrows():
-            rank = row['rank']
+            rank = int(row['rank'])
             model = row['model']
             cer = row['cer']
-            
-            # Performance rating
+
             if cer < 0.1:
-                performance = f"{Fore.GREEN}EXCELLENT{Style.RESET_ALL}"
+                performance_style = "green"
+                performance = "EXCELLENT"
             elif cer < 0.2:
-                performance = f"{Fore.YELLOW}GOOD{Style.RESET_ALL}"
+                performance_style = "yellow"
+                performance = "GOOD"
             elif cer < 0.3:
-                performance = f"{Fore.CYAN}FAIR{Style.RESET_ALL}"
+                performance_style = "cyan"
+                performance = "FAIR"
             else:
-                performance = f"{Fore.RED}POOR{Style.RESET_ALL}"
-            
-            if rank == 1:
-                rank_color = Fore.GREEN
-            elif rank == 2:
-                rank_color = Fore.YELLOW
-            elif rank == 3:
-                rank_color = Fore.CYAN
-            else:
-                rank_color = Fore.WHITE
-            
-            print(f"{rank_color}{rank:<8}{Style.RESET_ALL} {Fore.RED}{model:<50}{Style.RESET_ALL} {cer*100:.2f}%{'':<8} {performance}")
+                performance_style = "red"
+                performance = "POOR"
+
+            rank_style = {1: "green", 2: "yellow", 3: "cyan"}.get(rank, "white")
+            table.add_row(Text(str(rank), style=rank_style), Text(model, style="bold red"), f"{cer*100:.2f}%", Text(performance, style=performance_style))
+
+        console.print(table)
 
 def find_best_performers(df):
     """Find and present the best performing models"""
-    print(f"\n{Fore.CYAN}{'='*100}{Style.RESET_ALL}")
-    print(f"{Fore.CYAN}BEST PERFORMING MODELS - PRESENTATION{Style.RESET_ALL}")
-    print(f"{Fore.CYAN}{'='*100}{Style.RESET_ALL}")
-    
+    console.print("")
+    console.rule("BEST PERFORMING MODELS - PRESENTATION")
+
     for dataset in df['dataset_name'].unique():
         dataset_subset = df[df['dataset_name'] == dataset]
         best_model = dataset_subset.loc[dataset_subset['cer'].idxmin()]
-        
-        print(f"\n{Fore.BLUE}Dataset: {dataset}{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}Best Model: {best_model['model_name']}{Style.RESET_ALL}")
-        print(f"{Fore.YELLOW}Best CER: {best_model['cer']*100:.2f}%{Style.RESET_ALL}")
-        
-        # Performance rating
-        cer = best_model['cer']
-        if cer < 0.1:
-            rating = f"{Fore.GREEN}EXCELLENT{Style.RESET_ALL}"
-        elif cer < 0.2:
-            rating = f"{Fore.YELLOW}GOOD{Style.RESET_ALL}"
-        elif cer < 0.3:
-            rating = f"{Fore.CYAN}FAIR{Style.RESET_ALL}"
+
+        mean_cer = best_model['cer']
+        if mean_cer < 0.1:
+            rating_style = "green"
+            rating_text = "EXCELLENT"
+        elif mean_cer < 0.2:
+            rating_style = "yellow"
+            rating_text = "GOOD"
+        elif mean_cer < 0.3:
+            rating_style = "cyan"
+            rating_text = "FAIR"
         else:
-            rating = f"{Fore.RED}POOR{Style.RESET_ALL}"
-        
-        print(f"{Fore.MAGENTA}Performance Rating: {rating}{Style.RESET_ALL}")
+            rating_style = "red"
+            rating_text = "POOR"
+
+        details = Table(box=None)
+        details.add_column("Field", style="bold")
+        details.add_column("Value")
+        details.add_row("Dataset", dataset)
+        details.add_row("Best Model", best_model['model_name'])
+        details.add_row("Best CER", f"{best_model['cer']*100:.2f}%")
+        details.add_row("Performance Rating", rating_text)
+
+        console.print(Panel(details, title="Best Performer", expand=False, border_style=rating_style))
 
 if __name__ == "__main__":
     present_comparison_table()

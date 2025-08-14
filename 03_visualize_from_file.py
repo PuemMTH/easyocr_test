@@ -2,7 +2,7 @@ import pandas as pd
 from colorama import Fore, Style
 import ast
 
-df = pd.read_csv('reports/ocr_evaluation_20250727_235535/data/ocr_evaluation_detailed.csv')
+df = pd.read_csv('reports/ocr_evaluation_20250813_002540/data/ocr_evaluation_detailed.csv')
 
 for model in df['model_name'].unique():
     for dataset in df['dataset_name'].unique():

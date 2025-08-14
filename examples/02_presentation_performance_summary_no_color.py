@@ -1,10 +1,13 @@
 """
-OCR Performance Summary Presentation (No Color Version)
-การแสดงผลสรุปประสิทธิภาพของ OCR สำหรับการนำเสนอ (เวอร์ชันไม่มีสี)
+OCR Performance Summary Presentation (With Color)
+การแสดงผลสรุปประสิทธิภาพของ OCR สำหรับการนำเสนอ (เวอร์ชันมีสี)
 """
 
 import pandas as pd
-import numpy as np
+from rich.console import Console
+from rich.table import Table
+
+console = Console()
 
 def load_evaluation_data(csv_path):
     """Load OCR evaluation data from CSV file"""
@@ -56,36 +59,52 @@ def calculate_performance_metrics(df):
 
     return pd.DataFrame(performance_data)
 
+def get_rating_color(rating):
+    """Get color for rating"""
+    colors = {
+        "EXCELLENT": "bright_green",
+        "GOOD": "green", 
+        "FAIR": "yellow",
+        "POOR": "red"
+    }
+    return colors.get(rating, "white")
+
+def get_percentage_color(percentage):
+    """Get color for percentage values"""
+    if percentage >= 80:
+        return "bright_green"
+    elif percentage >= 60:
+        return "green"
+    elif percentage >= 40:
+        return "yellow"
+    elif percentage >= 20:
+        return "orange3"
+    else:
+        return "red"
+
 def present_performance_summary(csv_path='reports/ocr_evaluation_20250727_235535/data/ocr_evaluation_detailed.csv'):
     """Present performance summary for presentation (no color)"""
     df = load_evaluation_data(csv_path)
     performance_df = calculate_performance_metrics(df)
 
-    print("="*100)
-    print("OCR PERFORMANCE SUMMARY - PRESENTATION")
-    print("="*100)
+    console.rule("OCR PERFORMANCE SUMMARY - PRESENTATION")
+
+    table = Table(show_header=True, header_style="bold")
+    table.add_column("Model")
+    table.add_column("Dataset")
+    table.add_column("Total", justify="right")
+    table.add_column("Mean %", justify="right")
+    table.add_column("Std %", justify="right")
+    table.add_column("Min %", justify="right")
+    table.add_column("Max %", justify="right")
+    table.add_column("Median %", justify="right")
+    table.add_column("Perfect %", justify="right")
+    table.add_column("High %", justify="right")
+    table.add_column("Medium %", justify="right")
+    table.add_column("Low %", justify="right")
+    table.add_column("Rating")
 
     for _, row in performance_df.iterrows():
-        print(f"\nModel: {row['model_name']}")
-        print(f"Dataset: {row['dataset_name']}")
-        print(f"Total Samples: {row['total_samples']}")
-
-        # CER Statistics
-        print(f"\nCER Statistics:")
-        print(f"\tMean CER: {row['mean_cer']*100:.2f}%")
-        print(f"\tStd CER: {row['std_cer']*100:.2f}%")
-        print(f"\tMin CER: {row['min_cer']*100:.2f}%")
-        print(f"\tMax CER: {row['max_cer']*100:.2f}%")
-        print(f"\tMedian CER: {row['median_cer']*100:.2f}%")
-
-        # Accuracy Distribution
-        print(f"\nAccuracy Distribution:")
-        print(f"\tPerfect Matches (CER=0%): {row['perfect_matches']} ({row['perfect_matches_pct']:.1f}%)")
-        print(f"\tHigh Accuracy (CER<10%): {row['high_accuracy']} ({row['high_accuracy_pct']:.1f}%)")
-        print(f"\tMedium Accuracy (10%≤CER<50%): {row['medium_accuracy']} ({row['medium_accuracy_pct']:.1f}%)")
-        print(f"\tLow Accuracy (CER≥50%): {row['low_accuracy']} ({row['low_accuracy_pct']:.1f}%)")
-
-        # Performance Rating
         mean_cer = row['mean_cer']
         if mean_cer < 0.1:
             rating = "EXCELLENT"
@@ -96,24 +115,94 @@ def present_performance_summary(csv_path='reports/ocr_evaluation_20250727_235535
         else:
             rating = "POOR"
 
-        print(f"\nOverall Performance Rating: {rating}")
+        perfect_pct = row['perfect_matches_pct']
+        high_pct = row['high_accuracy_pct']
+        medium_pct = row['medium_accuracy_pct']
+        low_pct = row['low_accuracy_pct']
+
+        table.add_row(
+            str(row['model_name']),
+            str(row['dataset_name']),
+            f"{int(row['total_samples'])}",
+            f"[{get_rating_color(rating)}]{row['mean_cer']*100:.2f}[/]",
+            f"{row['std_cer']*100:.2f}",
+            f"{row['min_cer']*100:.2f}",
+            f"{row['max_cer']*100:.2f}",
+            f"{row['median_cer']*100:.2f}",
+            f"[{get_percentage_color(perfect_pct)}]{perfect_pct:.1f}[/]",
+            f"[{get_percentage_color(high_pct)}]{high_pct:.1f}[/]",
+            f"[{get_percentage_color(medium_pct)}]{medium_pct:.1f}[/]",
+            f"[{get_percentage_color(low_pct)}]{low_pct:.1f}[/]",
+            f"[{get_rating_color(rating)}]{rating}[/]",
+        )
+
+    console.print(table)
+
+def present_accuracy_distribution(csv_path='reports/ocr_evaluation_20250813_002540/data/ocr_evaluation_detailed.csv'):
+    """Present accuracy distribution for each model-dataset combination separated by dataset"""
+    df = load_evaluation_data(csv_path)
+    
+    console.rule("ACCURACY DISTRIBUTION BY MODEL AND DATASET")
+    
+    for dataset in df['dataset_name'].unique():
+        console.print("")
+        console.print(f"[bold yellow]Dataset: {dataset}[/]")
+        
+        table = Table(show_header=True, header_style="bold")
+        table.add_column("Model", style="cyan")
+        table.add_column("Total", justify="right")
+        table.add_column("Perfect (0%)", justify="right")
+        table.add_column("High (<10%)", justify="right")
+        table.add_column("Medium (10-50%)", justify="right")
+        table.add_column("Low (≥50%)", justify="right")
+        
+        for model in df['model_name'].unique():
+            subset = df.query("model_name == @model and dataset_name == @dataset")
+            
+            if subset.empty:
+                continue
+                
+            total_samples = len(subset)
+            
+            # Calculate accuracy categories
+            perfect_matches = len(subset[subset['cer'] == 0])
+            high_accuracy = len(subset[subset['cer'] < 0.1])  # CER < 10%
+            medium_accuracy = len(subset[(subset['cer'] >= 0.1) & (subset['cer'] < 0.5)])  # 10% ≤ CER < 50%
+            low_accuracy = len(subset[subset['cer'] >= 0.5])  # CER ≥ 50%
+            
+            # Calculate percentages
+            perfect_pct = (perfect_matches / total_samples) * 100
+            high_pct = (high_accuracy / total_samples) * 100
+            medium_pct = (medium_accuracy / total_samples) * 100
+            low_pct = (low_accuracy / total_samples) * 100
+            
+            table.add_row(
+                model,
+                str(total_samples),
+                f"[bright_green]{perfect_matches} ({perfect_pct:.1f}%)[/]",
+                f"[green]{high_accuracy} ({high_pct:.1f}%)[/]",
+                f"[yellow]{medium_accuracy} ({medium_pct:.1f}%)[/]",
+                f"[red]{low_accuracy} ({low_pct:.1f}%)[/]"
+            )
+        
+        console.print(table)
 
 def find_best_performers(df):
     """Find and present the best performing models"""
     performance_df = calculate_performance_metrics(df)
 
-    print("\n" + "="*80)
-    print("BEST PERFORMING MODELS BY DATASET")
-    print("="*80)
+    console.print("\n")
+    console.rule("BEST PERFORMING MODELS BY DATASET")
 
     for dataset in performance_df['dataset_name'].unique():
         dataset_performance = performance_df[performance_df['dataset_name'] == dataset]
         best_model = dataset_performance.loc[dataset_performance['mean_cer'].idxmin()]
 
-        print(f"\nDataset: {dataset}")
-        print(f"Best Model: {best_model['model_name']}")
-        print(f"Best Mean CER: {best_model['mean_cer']*100:.2f}%")
-        print(f"Perfect Matches: {best_model['perfect_matches_pct']:.1f}%")
+        console.print("")
+        console.print(f"[bold]Dataset:[/] [cyan]{dataset}[/]")
+        console.print(f"[bold]Best Model:[/] [green]{best_model['model_name']}[/]")
+        console.print(f"[bold]Best Mean CER:[/] [bright_green]{best_model['mean_cer']*100:.2f}%[/]")
+        console.print(f"[bold]Perfect Matches:[/] [bright_green]{best_model['perfect_matches_pct']:.1f}%[/]")
 
 if __name__ == "__main__":
     present_performance_summary()
